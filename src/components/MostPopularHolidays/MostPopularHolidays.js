@@ -1,5 +1,5 @@
 import './MostPopularHolidays.css';
-import HolidayCard from './HolidayCard/HolidayCard';
+import PopularHolidayCard from './PopularHolidayCard/PopularHolidayCard';
 
 const MostPopularHolidays = () => {
 	return (
@@ -12,10 +12,10 @@ const MostPopularHolidays = () => {
 								<h2 className="tm-section-title">Most Popular Destinations:</h2>
 							</div>
 						</div>
-						<HolidayCard />
-						<HolidayCard />
-						<HolidayCard />
-						<HolidayCard />
+						<PopularHolidayCard />
+						<PopularHolidayCard />
+						<PopularHolidayCard />
+						<PopularHolidayCard />
 					</div>
 				</div>
 			</section>

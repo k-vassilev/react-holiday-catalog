@@ -1,6 +1,6 @@
-import "./HolidayCard.css";
+import "./PopularHolidayCard.css";
 
-const HolidayCard = () => {
+const PopularHolidayCard = () => {
 	return (
 		<>
 			<div className="col-lg-6">
@@ -35,4 +35,4 @@ const HolidayCard = () => {
 	);
 };
 
-export default HolidayCard;
+export default PopularHolidayCard;

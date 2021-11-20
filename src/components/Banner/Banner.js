@@ -1,4 +1,5 @@
-import './Banner.css'
+import './Banner.css';
+import { NavLink } from "react-router-dom";
 
 const Banner = () => {
 	return (
@@ -9,9 +10,9 @@ const Banner = () => {
 						Welcome to <span className="tm-yellow-text">Holiday`s</span> catalog
 					</h1>
 					<p className="tm-banner-subtitle">Find Your Next Holiday Destination</p>
-					<a href="#more" className="tm-banner-link">
+					<NavLink to="/holidays" className="tm-banner-link">
 						Browse all destinations
-					</a>
+					</NavLink>
 				</div>
 				<img src="/images/banner-2.jpg" alt="Image" height="641vh" />
 			</section>

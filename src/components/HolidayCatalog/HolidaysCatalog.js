@@ -1,9 +1,12 @@
 import "./HolidaysCatalog.css";
 import HolidayCard from "./HolidayCard/HolidayCard";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const HolidaysCatalog = () => {
 	return (
 		<>
+			<Header />
 			<section className="container tm-home-section-1" id="more">
 				<div className="section-margin-top">
 					<div className="tm-section-header">
@@ -20,6 +23,7 @@ const HolidaysCatalog = () => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</>
 	);
 };

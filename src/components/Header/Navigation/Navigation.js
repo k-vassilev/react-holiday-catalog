@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 const Navigation = () => {
@@ -6,39 +7,32 @@ const Navigation = () => {
 			<nav className="tm-nav">
 				<ul>
 					<li>
-						<a href="index.html" className="active">
-							Home
-						</a>
+						<NavLink to="/holidays">All Holidays</NavLink>
 					</li>
 					<li>
-						<a href="about.html">All Holidays</a>
+						<NavLink to="/login">Login</NavLink>
 					</li>
 					<li>
-						<a href="tours.html">Login</a>
+						<NavLink to="/register">Register</NavLink>
 					</li>
 					<li>
-						<a href="contact.html">Register</a>
+						<NavLink to="/add-destination">Add New Destination</NavLink>
 					</li>
 				</ul>
 			</nav>
 			<nav className="tm-nav auth-nav">
 				<ul>
 					<li>
-						<a href="index.html" className="active">
-							Home
-						</a>
+						<NavLink to="/holidays">All Holidays</NavLink>
 					</li>
 					<li>
-						<a href="about.html">All Holidays</a>
+						<NavLink to="/add-destination">Add New Destination</NavLink>
 					</li>
 					<li>
-						<a href="tours.html">Add New Destination</a>
+						<NavLink to="/holidays">Destinations added by me</NavLink>
 					</li>
 					<li>
-						<a href="tours.html">Destinations added by me</a>
-					</li>
-					<li>
-						<a href="contact.html">Logout</a>
+						<NavLink to="/logout">Logout</NavLink>
 					</li>
 				</ul>
 			</nav>

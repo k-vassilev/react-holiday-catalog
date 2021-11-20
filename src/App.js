@@ -1,8 +1,8 @@
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
-import MostPopularHolidays from './components/MostPopularHolidays';
-import Authors from './components/Authors';
+import Header from './components/Header/Header';
+import Banner from './components/Banner/Banner';
+import Footer from './components/Footer/Footer';
+import MostPopularHolidays from './components/MostPopularHolidays/MostPopularHolidays';
+import Authors from './components/Authors/Authors';
 
 function App() {
 	return (

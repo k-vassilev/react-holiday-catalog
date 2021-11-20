@@ -1,5 +1,6 @@
 import './Login.css';
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
 	return(
@@ -25,6 +26,7 @@ const Login = () => {
                 </fieldset>
             </form>
         </section>
+		<Footer />
 		</>
 	)
 }

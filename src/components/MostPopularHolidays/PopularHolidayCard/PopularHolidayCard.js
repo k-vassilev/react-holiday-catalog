@@ -1,28 +1,29 @@
 import "./PopularHolidayCard.css";
 
-const PopularHolidayCard = () => {
+const PopularHolidayCard = ({ destination }) => {
 	return (
 		<>
 			<div className="col-lg-6">
 				<div className="tm-home-box-3">
 					<div className="tm-home-box-3-img-container">
-						<img
-							src="/images/index-07.jpg"
-							alt="image"
-							className="img-responsive"
-						/>
+						<div className="center-cropped" style={{ backgroundImage: `url(${destination.imageUrl})` }}>
+						</div>
 					</div>
 					<div className="tm-home-box-3-info">
 						<p className="tm-home-box-3-description">
-							Proin gravida nibhvell velit auctor aliquet. Aenean sollicitudin,
-							lorem quis bibendum auctor, nisi elit consequat ipsum
+							{destination.description}
 						</p>
 						<div className="tm-home-box-2-container">
-							<a href="#" className="tm-home-box-2-link">
-								<i className="fa fa-heart tm-home-box-2-icon border-right"></i>
+							<a className="tm-home-box-2-link">
+								<i className="fa fa-heart tm-home-box-2-icon border-right">
+									{" "}
+									{destination.likes}
+								</i>
 							</a>
 							<a href="#" className="tm-home-box-2-link">
-								<span className="tm-home-box-2-description box-3">Travel</span>
+								<span className="tm-home-box-2-description box-3">
+									{destination.title}
+								</span>
 							</a>
 							<a href="#" className="tm-home-box-2-link">
 								<i className="fa fa-edit tm-home-box-2-icon border-left"></i>

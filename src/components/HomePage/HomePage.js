@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 const HomePage = () => {
 	const [mostPopularHoliday, setMostPopularHoliday] = useState([]);
 	useEffect(() => {
-		holidayService.getLatest().then((result) => {
+		holidayService.getMostPopular().then((result) => {
 			setMostPopularHoliday(result);
 		});
 	}, []);

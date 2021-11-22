@@ -14,3 +14,12 @@ export const getLatest = () => {
 		`${baseUrl}/destinations?sortBy=_createdOn%20desc&distinct=category`)
 		.then(res => res.json());
 };
+
+export const getMostPopular = () => {
+	return fetch(
+		`${baseUrl}/destinations?sortBy=likes%20desc&distinct=category`)
+		.then(res => res.json());
+};
+
+//orderBy("LikeCount")
+

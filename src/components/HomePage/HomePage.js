@@ -32,7 +32,7 @@ const HomePage = () => {
 						</div>
 						{mostPopularDestinations.length > 0 ? (
 							mostPopularDestinations.map((x) => (
-								<PopularHolidayCard key={x.id} destination={x.acf} />
+								<PopularHolidayCard key={x.id} destination={x} />
 							))
 						) : (
 							<p>No destinations yet</p>

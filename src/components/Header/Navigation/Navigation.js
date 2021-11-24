@@ -7,7 +7,7 @@ const Navigation = () => {
 			<nav className="tm-nav">
 				<ul>
 					<li>
-						<NavLink to="/holidays">All Holidays</NavLink>
+						<NavLink to="/destinations">All Destinations</NavLink>
 					</li>
 					<li>
 						<NavLink to="/login">Login</NavLink>
@@ -23,7 +23,7 @@ const Navigation = () => {
 			<nav className="tm-nav auth-nav">
 				<ul>
 					<li>
-						<NavLink to="/holidays">All Holidays</NavLink>
+						<NavLink to="/destinations">All Holidays</NavLink>
 					</li>
 					<li>
 						<NavLink to="/add-destination">Add New Destination</NavLink>

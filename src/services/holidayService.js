@@ -1,25 +1,11 @@
-const baseUrl = "http://localhost:3030/data";
-
-export function getAll() {
-	return fetch(`${baseUrl}/destinations?sortBy=_createdOn%20desc`).then(res =>
-		res.json()
-	);
-}
+const baseUrl = "https://patrixbg.ephedratk.com/wp-json/wp/v2";
 
 export const getOne = (id) =>
 	fetch(`${baseUrl}/destinations/${id}`).then((res) => res.json());
 
-export const getLatest = () => {
+export const getAllDestinations = () => {
 	return fetch(
-		`${baseUrl}/destinations?sortBy=_createdOn%20desc&distinct=category`)
+		`${baseUrl}/destinations`)
 		.then(res => res.json());
-};
-
-export const getMostPopular = () => {
-	return fetch(
-		`${baseUrl}/destinations?sortBy=likes%20desc&distinct=category`)
-		.then(res => res.json());
-};
-
-//orderBy("LikeCount")
+}
 

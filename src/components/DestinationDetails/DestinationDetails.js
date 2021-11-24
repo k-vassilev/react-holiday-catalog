@@ -1,6 +1,19 @@
 import './DestinationDetails.css';
 
-const DestinationDetails = () => {
+import {useState, useEffect} from 'react';
+
+import * as holidayService from "../../services/holidayService";
+
+const DestinationDetails = ({
+	match,
+}) => {
+	const [destination, setDestination] = useState({});
+
+	useEffect(async () => {
+		let result = await holidayService.getOne(match.params.destinationId);
+		setDestination(result);
+	}, []);
+
 	return (
 		<>
 		<section id="game-details">

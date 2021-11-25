@@ -49,8 +49,6 @@ export const updateDestination = (destinationId, destination) => {
 	  },
   	};
 
-	  console.log(updatedDestination);
-
 	return fetch(`${baseUrl}/destinations/${destinationId}`, {
         method: 'POST',
         headers: {
@@ -68,7 +66,6 @@ export const deleteDestination = (destinationId) => {
             'Content-Type': 'application/json',
 			'Authorization': wpAdminToken,
         },
-        //body: JSON.stringify(updatedDestination)
     });
 }
 

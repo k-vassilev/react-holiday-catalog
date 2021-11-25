@@ -1,19 +1,35 @@
+import * as holidayService from "../../services/holidayService";
+
 import "./AddDestination.css";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-const AddDestination = () => {
+const AddDestination = ({
+	history,
+}) => {
+
+	const onAddDestinationSubmitHandler = (e) => {
+        e.preventDefault();
+
+        const { title, description, imgUrl, area } = e.target;
+
+		holidayService.createDestination(title.value, description.value, imgUrl.value, area.value)
+            .then(() => {
+                history.push('/');
+            })
+    };
+
 	return(
 		<>
 		<Header />
 		<section id="create-page" className="create">
-            <form id="create-form" action="" method="">
+            <form id="create-form" onSubmit={onAddDestinationSubmitHandler}>
                 <fieldset>
                     <legend>Add New Destination</legend>
                     <p className="field">
                         <label htmlFor="name">Destination Name</label>
                         <span className="input">
-                            <input type="text" name="name" id="name" placeholder="Name"/>
+                            <input type="text" name="title" id="title" placeholder="Name"/>
                         </span>
                     </p>
                     <p className="field">
@@ -23,15 +39,15 @@ const AddDestination = () => {
                         </span>
                     </p>
                     <p className="field">
-                        <label htmlFor="image">Destination Image URL</label>
+                        <label htmlFor="imgUrl">Destination Image URL</label>
                         <span className="input">
-                            <input type="text" name="imageUrl" id="image" placeholder="Image"/>
+                            <input type="text" name="imgUrl" id="imgUrl" placeholder="Image"/>
                         </span>
                     </p>
                     <p className="field">
-                        <label htmlFor="type">Area</label>
+                        <label htmlFor="area">Area</label>
                         <span className="input">
-                            <select id="type" name="type">
+                            <select id="area" name="area">
 								<option value="" disabled defaultValue>Choose Area</option>
                                 <option value="Blagoevgrad">Blagoevgrad</option>
                                 <option value="Burgas">Burgas</option>
@@ -54,7 +70,7 @@ const AddDestination = () => {
 								<option value="Silistra">Silistra</option>
 								<option value="Sliven">Sliven</option>
 								<option value="Smolyan">Smolyan</option>
-								<option value="Sofia">sofia</option>
+								<option value="Sofia">Sofia</option>
 								<option value="Stara-zagora">Stara Zagora</option>
 								<option value="Targovishte">Targovishte</option>
 								<option value="Haskovo">Haskovo</option>

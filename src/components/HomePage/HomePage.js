@@ -11,12 +11,10 @@ import Footer from "../Footer/Footer";
 const HomePage = () => {
 	const [mostPopularHoliday, setMostPopularHoliday] = useState([]);
 	useEffect(() => {
-		holidayService.getAllDestinations().then((result) => {
+		holidayService.getTopFourDestinations().then((result) => {
 			setMostPopularHoliday(result);
 		});
 	}, []);
-
-	const mostPopularDestinations = mostPopularHoliday.slice(0, 4);
 
 	return (
 		<>
@@ -30,8 +28,8 @@ const HomePage = () => {
 								<h2 className="tm-section-title">Most Popular Destinations:</h2>
 							</div>
 						</div>
-						{mostPopularDestinations.length > 0 ? (
-							mostPopularDestinations.map((x) => (
+						{mostPopularHoliday.length > 0 ? (
+							mostPopularHoliday.map((x) => (
 								<PopularHolidayCard key={x.id} destination={x} />
 							))
 						) : (

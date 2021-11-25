@@ -61,3 +61,14 @@ export const updateDestination = (destinationId, destination) => {
     });
 };
 
+export const deleteDestination = (destinationId) => {
+	return fetch(`${baseUrl}/destinations/${destinationId}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+			'Authorization': wpAdminToken,
+        },
+        //body: JSON.stringify(updatedDestination)
+    });
+}
+

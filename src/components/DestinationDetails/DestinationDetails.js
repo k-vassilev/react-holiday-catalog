@@ -10,6 +10,7 @@ import Footer from "../Footer/Footer";
 
 const DestinationDetails = ({
 	match,
+	history,
 }) => {
 	const [destination, setDestination] = useState({});
 
@@ -17,6 +18,18 @@ const DestinationDetails = ({
 		let result = await holidayService.getOne(match.params.destinationId);
 		setDestination(result);
 	}, []);
+
+	const onDelete = (e) => {
+        e.preventDefault();
+
+        let destinationId = match.params.destinationId;
+
+        holidayService.deleteDestination(destinationId)
+            .then(() => {
+                history.push(`/destinations`);
+                return;
+            });
+    }
 
 	if(destination.acf){
 		return (
@@ -41,9 +54,9 @@ const DestinationDetails = ({
 						<NavLink to={`/destinations/${destination.id}/edit`} className="button">
 							Edit
 						</NavLink>
-						<NavLink to="#" className="button">
-							Delete
-						</NavLink>
+						<form onSubmit={onDelete}>
+                			<button className="button">Delete</button>
+            			</form>
 					</div>
 				</div>
 	

@@ -27,9 +27,9 @@ const PopularHolidayCard = (props) => {
 									{props.destination.acf.destination_title}
 								</span>
 							</NavLink>
-							<a href="#" className="tm-home-box-2-link">
+							<NavLink to={`/destinations/${props.destination.id}/edit`} className="tm-home-box-2-link">
 								<i className="fa fa-edit tm-home-box-2-icon border-left"></i>
-							</a>
+							</NavLink>
 						</div>
 					</div>
 				</div>

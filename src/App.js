@@ -6,6 +6,7 @@ import AddDestination from "./components/AddDestination/AddDestination";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import DestinationDetails from "./components/DestinationDetails/DestinationDetails";
+import EditDestination from "./components/EditDestination/EditDestination";
 
 function App() {
 	return (
@@ -15,7 +16,9 @@ function App() {
 			<Route path="/add-destination" component={AddDestination} />
 			<Route path="/login" component={Login} />
 			<Route path="/register" component={Register} />
+			<Route path="/destinations/:destinationId/edit" component={EditDestination} />
 			<Route path="/destinations/:destinationId" component={DestinationDetails} />
+			
 			<Route
 				path="/logout"
 				render={(prop) => {

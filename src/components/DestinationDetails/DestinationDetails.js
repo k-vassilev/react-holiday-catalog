@@ -1,5 +1,6 @@
 
 import {useState, useEffect} from 'react';
+import { NavLink } from "react-router-dom";
 
 import * as holidayService from "../../services/holidayService";
 
@@ -22,7 +23,7 @@ const DestinationDetails = ({
 			<>
 			<Header />
 			<section id="game-details">
-				<h1>Game Details</h1>
+				<h1>Destination Details</h1>
 				<div className="info-section">
 					<div className="game-header">
 					<div className="center-cropped" style={{ backgroundImage: `url(${destination.acf.destination_image_url})` }}>
@@ -37,12 +38,12 @@ const DestinationDetails = ({
 					</p>
 	
 					<div className="buttons">
-						<a href="#" className="button">
+						<NavLink to={`/destinations/${destination.id}/edit`} className="button">
 							Edit
-						</a>
-						<a href="#" className="button">
+						</NavLink>
+						<NavLink to="#" className="button">
 							Delete
-						</a>
+						</NavLink>
 					</div>
 				</div>
 	

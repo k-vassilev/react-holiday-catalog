@@ -38,3 +38,26 @@ export const createDestination = (destination_title, destination_description, de
     });
 };
 
+export const updateDestination = (destinationId, destination) => {
+	let updatedDestination = {
+		title: destination.destination_title,
+	  'status': 'publish',
+	  'acf': {
+		'destination_title': destination.destination_title,
+		'destination_description': destination.destination_description,
+		'destination_image_url': destination.destination_image_url,
+	  },
+  	};
+
+	  console.log(updatedDestination);
+
+	return fetch(`${baseUrl}/destinations/${destinationId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+			'Authorization': wpAdminToken,
+        },
+        body: JSON.stringify(updatedDestination)
+    });
+};
+

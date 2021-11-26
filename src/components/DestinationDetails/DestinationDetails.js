@@ -23,7 +23,7 @@ const DestinationDetails = ({
 	useEffect(async () => {
 		let result = await userService.getOneUser(destination.author);
 		setAuthor(result);
-	})
+	}, [destination.author]);
 
 	const onDelete = (e) => {
         e.preventDefault();

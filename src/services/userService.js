@@ -13,4 +13,16 @@ export async function getAllUsers() {
 	return response.json();
 }
 
+export async function getOneUser(id) {
+	const settings = {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: wpAdminToken,
+		},
+	};
+	let response = await fetch(`${baseUrl}/users/${id}`, settings);
+	return response.json();
+}
+
 

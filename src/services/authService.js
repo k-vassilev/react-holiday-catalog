@@ -32,6 +32,9 @@ export async function getBearerToken(currentUser) {
 			settings
 		);
 		result = await response.json();
+		for (let key in result ) {
+			localStorage.setItem( key, result[key]);
+		}
 		return result.token;
 	} catch (error) {
 		console.error(error);

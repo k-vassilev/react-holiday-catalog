@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import "./PopularHolidayCard.css";
 
 const PopularHolidayCard = (props) => {
-	console.log(props);
 	return (
 		<>
 			<div className="col-lg-6">

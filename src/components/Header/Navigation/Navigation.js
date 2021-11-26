@@ -1,9 +1,37 @@
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
-const Navigation = () => {
-	return (
-		<>
+const Navigation = ({
+	history,
+}) => {
+	let isLogged = localStorage.token;
+	let displayName = localStorage.user_nicename;
+
+	const logout = () => {
+		localStorage.clear();
+	};
+
+	if (isLogged) {
+		return (
+			<nav className="tm-nav auth-nav">
+				<ul>
+					<li>
+						<NavLink to="/destinations">All Holidays</NavLink>
+					</li>
+					<li>
+						<NavLink to="/add-destination">Add New Destination</NavLink>
+					</li>
+					<li>
+						<NavLink to="/holidays">Added by me</NavLink>
+					</li>
+					<li>
+						<NavLink to="/" onClick={logout}>Logout</NavLink>
+					</li>
+				</ul>
+			</nav>
+		);
+	} else {
+		return (
 			<nav className="tm-nav">
 				<ul>
 					<li>
@@ -15,29 +43,10 @@ const Navigation = () => {
 					<li>
 						<NavLink to="/register">Register</NavLink>
 					</li>
-					<li>
-						<NavLink to="/add-destination">Add New Destination</NavLink>
-					</li>
 				</ul>
 			</nav>
-			<nav className="tm-nav auth-nav">
-				<ul>
-					<li>
-						<NavLink to="/destinations">All Holidays</NavLink>
-					</li>
-					<li>
-						<NavLink to="/add-destination">Add New Destination</NavLink>
-					</li>
-					<li>
-						<NavLink to="/holidays">Destinations added by me</NavLink>
-					</li>
-					<li>
-						<NavLink to="/logout">Logout</NavLink>
-					</li>
-				</ul>
-			</nav>
-		</>
-	);
+		);
+	}
 };
 
 export default Navigation;

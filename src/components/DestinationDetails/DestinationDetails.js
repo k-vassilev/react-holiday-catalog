@@ -18,7 +18,6 @@ const DestinationDetails = ({
 		let result = await holidayService.getOne(match.params.destinationId);
 		setDestination(result);
 	}, []);
-
 	const onDelete = (e) => {
         e.preventDefault();
 
@@ -48,6 +47,11 @@ const DestinationDetails = ({
 	
 					<p className="text">
 					{destination.acf.destination_description}
+					</p>
+
+					<h1>Author: </h1>
+					<p className="destination-author">
+						{destination.author}
 					</p>
 	
 					<div className="buttons">

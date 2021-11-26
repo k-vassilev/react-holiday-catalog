@@ -20,7 +20,9 @@ const Register = ({
 			username,
 			password,
 		}
-		authService.createUser(userData);
+		authService.createUser(userData).then(() => {
+			history.push('/');
+		});
 	}
 
 	return(

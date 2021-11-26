@@ -1,11 +1,12 @@
 import * as holidayService from "../../services/holidayService";
+import * as userService from "../../services/userService";
 import { useState, useEffect } from "react";
 import "./HomePage.css";
 
 import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
 import PopularHolidayCard from "../MostPopularHolidays/PopularHolidayCard/PopularHolidayCard";
-import Authors from "../Authors/Authors";
+import Author from "../Authors/Author/Author";
 import Footer from "../Footer/Footer";
 
 const HomePage = () => {
@@ -13,6 +14,13 @@ const HomePage = () => {
 	useEffect(() => {
 		holidayService.getTopFourDestinations().then((result) => {
 			setMostPopularHoliday(result);
+		});
+	}, []);
+
+	const [authors, setAuthors] = useState([]);
+	useEffect(() => {
+		userService.getAllUsers().then((result) => {
+			setAuthors(result);
 		});
 	}, []);
 
@@ -38,7 +46,18 @@ const HomePage = () => {
 					</div>
 				</div>
 			</section>
-			<Authors />
+			<section className="container tm-home-section-1" id="more">
+				<div className="tm-section-header">
+					<div className="col-lg-6 col-md-6 col-sm-6">
+						<h2 className="tm-section-title">Contributors:</h2>
+					</div>
+				</div>
+				{authors.length > 0 ? (
+					authors.map((x) => <Author key={x.id} author={x} />)
+				) : (
+					<p>No authors yet</p>
+				)}
+			</section>
 			<Footer />
 		</>
 	);

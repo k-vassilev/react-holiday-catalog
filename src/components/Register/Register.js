@@ -12,18 +12,15 @@ const Register = ({
 	const onRegisterSubmitHandler = (e) => {
 		e.preventDefault();
 
-		//const { email, username, password  } = e.target;
-
 		const formData = new FormData(e.target);
-		const {username, email, password} = Object.fromEntries(formData)
+		const {email, username, password} = Object.fromEntries(formData)
 
-		console.log(email, username, password);
 		const userData = {
 			email,
 			username,
 			password,
 		}
-		authService.registerUser(userData);
+		authService.createUser(userData);
 	}
 
 	return(

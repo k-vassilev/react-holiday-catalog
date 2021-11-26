@@ -21,12 +21,19 @@ const EditDestination = ({
         e.preventDefault();
 
         const destinationId = match.params.destinationId;
-        const updatedDestination = {
-			...destination.acf, 
-			destination_title: e.target.title.value,
-			destination_description: e.target.description.value,
-			destination_image_url: e.target.image.value,
-		};
+
+		const formData = new FormData(e.target);
+		const {title, description, imgUrl} = Object.fromEntries(formData)
+
+		const updatedDestination = {
+			title: e.target.title.value,
+		  	'status': 'publish',
+		  	'acf': {
+				'destination_title': title,
+				'destination_description': description,
+				'destination_image_url': imgUrl,
+		  	},
+		  };
 
         holidayService.updateDestination(destinationId, updatedDestination)
             .then(() => {
@@ -56,9 +63,9 @@ const EditDestination = ({
 							</span>
 						</p>
 						<p className="field">
-							<label htmlFor="image">Image</label>
+							<label htmlFor="imgUrl">Image</label>
 							<span className="input">
-								<input type="text" name="image" id="image" defaultValue={destination.acf.destination_image_url}/>
+								<input type="text" name="imgUrl" id="imgUrl" defaultValue={destination.acf.destination_image_url}/>
 							</span>
 						</p>
 						<input className="button submit" type="submit" value="Save"/>

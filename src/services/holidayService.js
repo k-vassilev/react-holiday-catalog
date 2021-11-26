@@ -16,7 +16,7 @@ export const getTopFourDestinations = () => {
 		.then(res => res.json());
 }
 
-export const createDestination = ( destination ) => {
+export const createDestination = (destination) => {
     return fetch(`${baseUrl}/destinations`, {
         method: 'POST',
         headers: {
@@ -27,17 +27,7 @@ export const createDestination = ( destination ) => {
     });
 };
 
-export const updateDestination = (destinationId, destination) => {
-	let updatedDestination = {
-		title: destination.destination_title,
-	  'status': 'publish',
-	  'acf': {
-		'destination_title': destination.destination_title,
-		'destination_description': destination.destination_description,
-		'destination_image_url': destination.destination_image_url,
-	  },
-  	};
-
+export const updateDestination = (destinationId, updatedDestination) => {
 	return fetch(`${baseUrl}/destinations/${destinationId}`, {
         method: 'POST',
         headers: {

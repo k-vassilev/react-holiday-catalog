@@ -16,18 +16,7 @@ export const getTopFourDestinations = () => {
 		.then(res => res.json());
 }
 
-export const createDestination = (destination_title, destination_description, destination_image_url, destination_area ) => {
-    let destination = {
-      	title: destination_title,
-		'status': 'publish',
-		'acf': {
-			destination_title,
-			destination_description,
-			destination_image_url,
-			destination_area,
-		}
-    };
-    
+export const createDestination = ( destination ) => {
     return fetch(`${baseUrl}/destinations`, {
         method: 'POST',
         headers: {

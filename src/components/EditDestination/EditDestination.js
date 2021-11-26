@@ -20,8 +20,8 @@ const EditDestination = ({
 	const onSaveSubmit = (e) => {
         e.preventDefault();
 
-        let destinationId = match.params.destinationId;
-        let updatedDestination = {
+        const destinationId = match.params.destinationId;
+        const updatedDestination = {
 			...destination.acf, 
 			destination_title: e.target.title.value,
 			destination_description: e.target.description.value,

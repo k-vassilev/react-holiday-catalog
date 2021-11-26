@@ -7,13 +7,24 @@ import Footer from "../Footer/Footer";
 const AddDestination = ({
 	history,
 }) => {
-
 	const onAddDestinationSubmitHandler = (e) => {
         e.preventDefault();
 
-        const { title, description, imgUrl, area } = e.target;
+		const formData = new FormData(e.target);
+		const {title, description, imgUrl, area} = Object.fromEntries(formData)
 
-		holidayService.createDestination(title.value, description.value, imgUrl.value, area.value)
+		const destination = {
+			title: title,
+		  	'status': 'publish',
+		  	'acf': {
+			  	"destination_title" : title,
+			  	"destination_description": description,
+			  	"destination_image_url": imgUrl,
+			  	"destination_area": area,
+		  	}
+	  };
+
+		holidayService.createDestination(destination)
             .then(() => {
                 history.push('/');
             })

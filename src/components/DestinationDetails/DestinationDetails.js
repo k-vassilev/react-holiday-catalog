@@ -22,7 +22,7 @@ const DestinationDetails = ({
 	const onDelete = (e) => {
         e.preventDefault();
 
-        let destinationId = match.params.destinationId;
+        const destinationId = match.params.destinationId;
 
         holidayService.deleteDestination(destinationId)
             .then(() => {

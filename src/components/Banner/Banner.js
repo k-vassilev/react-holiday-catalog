@@ -14,7 +14,7 @@ const Banner = () => {
 						Browse all destinations
 					</NavLink>
 				</div>
-				<img src="/images/banner-2.jpg" alt="Image" height="641vh" />
+				<img src="/images/banner-2.jpg" alt="banner" height="641vh" />
 			</section>
 		</>
 	);

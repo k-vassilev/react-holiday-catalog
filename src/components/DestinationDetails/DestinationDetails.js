@@ -1,9 +1,9 @@
-
 import {useState, useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 
 import * as holidayService from "../../services/holidayService";
 import * as userService from "../../services/userService";
+import DestinationAuthor from './DestinationAuthor/DestinationAuthor';
 
 import './DestinationDetails.css';
 import Header from "../Header/Header";
@@ -14,16 +14,11 @@ const DestinationDetails = ({
 	history,
 }) => {
 	const [destination, setDestination] = useState({});
+
 	useEffect(async () => {
 		let result = await holidayService.getOne(match.params.destinationId);
 		setDestination(result);
 	}, []);
-
-	const [author, setAuthor] = useState({});
-	useEffect(async () => {
-		let result = await userService.getOneUser(destination.author);
-		setAuthor(result);
-	}, [destination.author]);
 
 	const onDelete = (e) => {
         e.preventDefault();
@@ -57,9 +52,7 @@ const DestinationDetails = ({
 					</p>
 
 					<h2>Added by: </h2>
-					<p className="destination-author">
-						{author.name}
-					</p>
+					<DestinationAuthor authorId = {destination.author}/>
 	
 					<div className="buttons">
 						<NavLink to={`/destinations/${destination.id}/edit`} className="button">

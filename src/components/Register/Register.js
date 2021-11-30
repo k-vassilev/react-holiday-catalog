@@ -29,7 +29,7 @@ const Register = ({
 		<>
 		<Header />
 		<section id="register-page" className="register">
-            <form id="register-form" onSubmit={onRegisterSubmitHandler}>
+            <form id="register-form" method="POST" onSubmit={onRegisterSubmitHandler}>
                 <fieldset>
                     <legend>Register Form</legend>
                     <p className="field">

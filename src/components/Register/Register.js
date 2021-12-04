@@ -13,12 +13,17 @@ const Register = ({
 		e.preventDefault();
 
 		const formData = new FormData(e.target);
-		const {email, username, password} = Object.fromEntries(formData)
+		const {email, username, userImg, userDescription, password} = Object.fromEntries(formData)
 
 		const userData = {
 			email,
 			username,
 			password,
+			acf: {
+				username,
+				image_url: userImg,
+				user_description: userDescription,
+			}
 		}
 		authService.createUser(userData).then(() => {
 			history.push('/');
@@ -42,6 +47,18 @@ const Register = ({
                         <label htmlFor="username">User Name</label>
                         <span className="input">
                             <input type="text" name="username" id="username" placeholder="User Name"/>
+                        </span>
+                    </p>
+					<p className="field">
+                        <label htmlFor="userImg">Image Url</label>
+                        <span className="input">
+                            <input type="text" name="userImg" id="userImg" placeholder="Image Url"/>
+                        </span>
+                    </p>
+					<p className="field">
+                        <label htmlFor="userDescription">Introuduce yourself</label>
+                        <span className="input">
+                            <textarea rows="5" name="userDescription" id="userDescription" placeholder="About yourself"/>
                         </span>
                     </p>
                     <p className="field">

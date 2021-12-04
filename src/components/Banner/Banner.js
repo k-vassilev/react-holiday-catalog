@@ -10,7 +10,7 @@ const Banner = () => {
 						Welcome to <span className="tm-yellow-text">Holiday`s</span> catalog
 					</h1>
 					<p className="tm-banner-subtitle">Find Your Next Holiday Destination</p>
-					<NavLink to="/holidays" className="tm-banner-link">
+					<NavLink to="/destinations" className="tm-banner-link">
 						Browse all destinations
 					</NavLink>
 				</div>

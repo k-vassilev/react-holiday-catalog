@@ -14,6 +14,12 @@ const DestinationDetails = ({
 }) => {
 	const [destination, setDestination] = useState({});
 	const userToken = useContext(AuthContext).user.token;
+	let userInfo = useContext(AuthContext).user;
+	let userID;
+
+	if(userToken){
+		userID = userInfo[0].id;
+	}
 
 	useEffect(() => {
 		const getOneHoliday = async () => {
@@ -57,17 +63,19 @@ const DestinationDetails = ({
 
 					<h2>Added by: </h2>
 					<DestinationAuthor authorId = {destination.author}/>
-	
-					<div className="buttons">
-						<NavLink to={`/destinations/${destination.id}/edit`} className="button">
-							Edit
-						</NavLink>
-						<form onSubmit={onDelete}>
-                			<button className="button">Delete</button>
-            			</form>
-					</div>
+					{
+						destination.author === userID
+							?<div className="buttons">
+								<NavLink to={`/destinations/${destination.id}/edit`} className="button">
+									Edit
+								</NavLink>
+								<form onSubmit={onDelete}>
+                					<button className="button">Delete</button>
+            					</form>
+							</div>
+							: null
+					}
 				</div>
-	
 			</section>
 			<Footer />
 			</>

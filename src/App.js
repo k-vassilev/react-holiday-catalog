@@ -1,4 +1,7 @@
 import { Route, Switch, Redirect } from "react-router-dom";
+import { useState } from 'react';
+
+import AuthContext from "./contexts/AuthContext";
 
 import HomePage from "./components/HomePage/HomePage";
 import HolidayCatalog from "./components/HolidayCatalog/HolidaysCatalog";
@@ -9,7 +12,14 @@ import DestinationDetails from "./components/DestinationDetails/DestinationDetai
 import EditDestination from "./components/EditDestination/EditDestination";
 
 function App() {
+
+	const [user, setUser] = useState({});
+	const authUser = (userData) => {
+		setUser(userData);
+	}
+
 	return (
+		<AuthContext.Provider value={{user, authUser}}>
 		<Switch>
 			<Route path="/" exact component={HomePage} />
 			<Route path="/destinations" exact component={HolidayCatalog} />
@@ -27,6 +37,7 @@ function App() {
 				}}
 			/>
 		</Switch>
+		</AuthContext.Provider>
 	);
 }
 

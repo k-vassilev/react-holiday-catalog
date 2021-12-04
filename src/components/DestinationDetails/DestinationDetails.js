@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 
 import * as holidayService from "../../services/holidayService";
-import * as userService from "../../services/userService";
 import DestinationAuthor from './DestinationAuthor/DestinationAuthor';
 
 import './DestinationDetails.css';
@@ -15,10 +14,14 @@ const DestinationDetails = ({
 }) => {
 	const [destination, setDestination] = useState({});
 
-	useEffect(async () => {
-		let result = await holidayService.getOne(match.params.destinationId);
-		setDestination(result);
-	}, []);
+	useEffect(() => {
+		const getOneHoliday = async () => {
+			let result = await holidayService.getOne(match.params.destinationId);
+			setDestination(result);
+		}
+		getOneHoliday();
+		
+	}, [match.params.destinationId]);
 
 	const onDelete = (e) => {
         e.preventDefault();

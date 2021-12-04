@@ -6,7 +6,7 @@ const DestinationAuthor = ({authorId}) => {
 	useEffect(() => {
 		userService.getOneUser(authorId)
 		.then(res => setAuthor(res));
-	}, []);
+	}, [authorId]);
 
 	return <p className="destination-author">{author.name}</p>;
 };

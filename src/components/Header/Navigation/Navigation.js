@@ -5,7 +5,6 @@ const Navigation = ({
 	history,
 }) => {
 	let isLogged = localStorage.token;
-	let displayName = localStorage.user_nicename;
 
 	const logout = () => {
 		localStorage.clear();

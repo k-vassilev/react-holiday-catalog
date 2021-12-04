@@ -16,12 +16,12 @@ const PopularHolidayCard = (props) => {
 							{props.destination.acf.destination_description}
 						</p>
 						<div className="tm-home-box-2-container">
-							<a className="tm-home-box-2-link">
+							<NavLink to="#" className="tm-home-box-2-link">
 								<i className="fa fa-heart tm-home-box-2-icon border-right">
 									{" "}
 									{props.destination.acf.destination_likes}
 								</i>
-							</a>
+							</NavLink>
 							<NavLink to={`/destinations/${props.destination.id}`} className="tm-home-box-2-link">
 								<span className="tm-home-box-2-description box-3">
 									{props.destination.acf.destination_title}

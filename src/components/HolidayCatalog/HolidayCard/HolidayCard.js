@@ -12,9 +12,9 @@ const HolidayCard = (props) => {
 					<h3>{props.destination.acf.destination_description}</h3>
 					<p className="tm-date">{props.destination.acf.destination_publish_date}</p>
 					<div className="tm-home-box-2-container">
-						<a href="#" className="tm-home-box-2-link">
+						<NavLink то="#" className="tm-home-box-2-link">
 							<i className="fa fa-heart tm-home-box-2-icon border-right"></i>
-						</a>
+						</NavLink>
 						<NavLink to={`/destinations/${props.destination.id}`} className="tm-home-box-2-link">
 							<span className="tm-home-box-2-description">{props.destination.acf.destination_title}</span>
 						</NavLink>

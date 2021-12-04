@@ -12,10 +12,13 @@ const EditDestination = ({
 }) => {
 	const [destination, setDestination] = useState({});
 
-	useEffect(async () => {
-		let result = await holidayService.getOne(match.params.destinationId);
-		setDestination(result);
-	}, []);
+	useEffect(() => {
+		const getOneHoliday = async() => {
+			let result = await holidayService.getOne(match.params.destinationId);
+			setDestination(result);
+		}
+		getOneHoliday();
+	}, [match.params.destinationId]);
 
 	const onSaveSubmit = (e) => {
         e.preventDefault();

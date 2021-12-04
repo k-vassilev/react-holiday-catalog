@@ -1,4 +1,4 @@
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useState } from 'react';
 
 import AuthContext from "./contexts/AuthContext";
@@ -28,14 +28,6 @@ function App() {
 			<Route path="/register" component={Register} />
 			<Route path="/destinations/:destinationId/edit" component={EditDestination} />
 			<Route path="/destinations/:destinationId" component={DestinationDetails} />
-			
-			<Route
-				path="/logout"
-				render={(prop) => {
-					console.log("Succesfully logged Out!");
-					return <Redirect to="/" />;
-				}}
-			/>
 		</Switch>
 		</AuthContext.Provider>
 	);

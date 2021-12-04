@@ -5,8 +5,6 @@ import * as authService from "../../services/authService";
 import { useContext } from "react";
 import AuthContext from '../../contexts/AuthContext';
 
-
-
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -26,15 +24,12 @@ const Login = ({
 			password,
 		}
 		authService.getBearerToken(userData).then((response) => {
-			authService.searchUserByEmail(response.user_email).then((searchResult) => {
-				console.log(searchResult);
-				authUser(searchResult);
+			authService.getUserByEmail(response.user_email).then((searchResult) => {
+				authUser({...searchResult, token: response.token});
 				history.push('/');
 			})
-			
 		});
 	}
-
 
 	return(
 		<>

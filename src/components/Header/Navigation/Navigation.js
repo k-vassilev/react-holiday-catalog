@@ -1,13 +1,29 @@
 import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useContext } from "react";
+import AuthContext from "../../../contexts/AuthContext";
 import "./Navigation.css";
 
-const Navigation = ({
-	history,
-}) => {
-	let isLogged = localStorage.token;
+const Navigation = () => {
+	const [isLogged, setIsLogged] = useState('');
+	const contextValue = useContext(AuthContext);
+
+	useEffect(() => {
+		
+		if(contextValue.user){
+			if(contextValue.user[0]){
+				setIsLogged(contextValue.user[0]);
+			}else{
+				return;
+			}
+		}
+		
+	}, [contextValue.user]);
 
 	const logout = () => {
 		localStorage.clear();
+		contextValue.authUser({});
+		setIsLogged(false);
 	};
 
 	if (isLogged) {

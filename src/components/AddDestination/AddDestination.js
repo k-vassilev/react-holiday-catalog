@@ -7,6 +7,8 @@ import Footer from "../Footer/Footer";
 const AddDestination = ({
 	history,
 }) => {
+	const userToken = localStorage.getItem('token');
+
 	const onAddDestinationSubmitHandler = (e) => {
         e.preventDefault();
 
@@ -24,7 +26,7 @@ const AddDestination = ({
 		  	}
 	  };
 
-		holidayService.createDestination(destination)
+		holidayService.createDestination(destination, userToken)
             .then(() => {
                 history.push('/');
             })

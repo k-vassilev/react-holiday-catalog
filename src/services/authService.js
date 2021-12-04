@@ -32,28 +32,22 @@ export async function getBearerToken(currentUser) {
 			settings
 		);
 		result = await response.json();
-		for (let key in result ) {
-			localStorage.setItem( key, result[key]);
-		}
+		localStorage.setItem('token', result.token);
 		return result;
 	} catch (error) {
 		console.error(error);
 	}
 }
 
-export async function searchUserByEmail(email)
- {
-	console.log('in search')
+export async function getUserByEmail(email){
 	const settings = {
 		method: 'GET',
 	};
 	try {
 		let response = await fetch(`${baseUrl}/wp-json/wp/v2/users?search=${email}`, settings)
 		let result = await response.json();
-		console.log(await result, 'Search user by email')
 		return result;
 	}catch(err) {
 		console.error(err)
 	}
-
 }

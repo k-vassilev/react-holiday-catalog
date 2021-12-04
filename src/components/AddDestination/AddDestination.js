@@ -1,13 +1,15 @@
-import * as holidayService from "../../services/holidayService";
+import { useContext } from "react";
 
-import "./AddDestination.css";
+import * as holidayService from "../../services/holidayService";
+import AuthContext from "../../contexts/AuthContext";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import "./AddDestination.css";
 
 const AddDestination = ({
 	history,
 }) => {
-	const userToken = localStorage.getItem('token');
+	const userToken = useContext(AuthContext).user.token;
 
 	const onAddDestinationSubmitHandler = (e) => {
         e.preventDefault();

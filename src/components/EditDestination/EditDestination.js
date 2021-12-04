@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import * as holidayService from "../../services/holidayService";
+import { useEffect, useState, useContext } from 'react';
 
+import * as holidayService from "../../services/holidayService";
+import AuthContext from "../../contexts/AuthContext";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
@@ -11,6 +12,7 @@ const EditDestination = ({
 	history,
 }) => {
 	const [destination, setDestination] = useState({});
+	const userToken = useContext(AuthContext).user.token;
 
 	useEffect(() => {
 		const getOneHoliday = async() => {
@@ -38,7 +40,7 @@ const EditDestination = ({
 		  	},
 		  };
 
-        holidayService.updateDestination(destinationId, updatedDestination)
+        holidayService.updateDestination(destinationId, updatedDestination, userToken)
             .then(() => {
                 history.push(`/destinations/${destinationId}`);
                 return;

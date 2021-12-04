@@ -1,18 +1,19 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import { NavLink } from "react-router-dom";
 
 import * as holidayService from "../../services/holidayService";
+import AuthContext from '../../contexts/AuthContext';
 import DestinationAuthor from './DestinationAuthor/DestinationAuthor';
-
-import './DestinationDetails.css';
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
+import './DestinationDetails.css';
 
 const DestinationDetails = ({
 	match,
 	history,
 }) => {
 	const [destination, setDestination] = useState({});
+	const userToken = useContext(AuthContext).user.token;
 
 	useEffect(() => {
 		const getOneHoliday = async () => {
@@ -28,7 +29,7 @@ const DestinationDetails = ({
 
         const destinationId = match.params.destinationId;
 
-        holidayService.deleteDestination(destinationId)
+        holidayService.deleteDestination(destinationId, userToken)
             .then(() => {
                 history.push(`/destinations`);
                 return;

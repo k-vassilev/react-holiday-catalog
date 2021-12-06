@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { isAuth	} from "../../hoc/isAuth";
 
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
@@ -103,4 +104,4 @@ const AddDestination = ({
 	)
 }
 
-export default AddDestination;
+export default isAuth(AddDestination);

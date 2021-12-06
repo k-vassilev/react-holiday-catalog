@@ -15,6 +15,12 @@ export const getTopFourDestinations = () => {
 		.then(res => res.json());
 }
 
+export const getOwnDestinations = (authorId) => {
+	return fetch(
+		`${baseUrl}/destinations?author=${authorId}`)
+		.then(res => res.json());
+}
+
 export const createDestination = (destination, userToken) => {
     return fetch(`${baseUrl}/destinations`, {
         method: 'POST',

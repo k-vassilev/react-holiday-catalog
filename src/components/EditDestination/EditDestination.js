@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-
+import { isAuth	} from "../../hoc/isAuth";
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
 import Header from "../Header/Header";
@@ -90,4 +90,4 @@ const EditDestination = ({
 		)
 	}
 }
-export default EditDestination;
+export default isAuth(EditDestination);

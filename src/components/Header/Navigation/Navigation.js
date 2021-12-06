@@ -37,7 +37,7 @@ const Navigation = () => {
 						<NavLink to="/add-destination">Add New Destination</NavLink>
 					</li>
 					<li>
-						<NavLink to="/holidays">Added by me</NavLink>
+						<NavLink to="/destinations-by-me">Added by me</NavLink>
 					</li>
 					<li>
 						<NavLink to="/" onClick={logout}>Logout</NavLink>

@@ -10,6 +10,7 @@ import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import DestinationDetails from "./components/DestinationDetails/DestinationDetails";
 import EditDestination from "./components/EditDestination/EditDestination";
+import DestinationsByMe from "./components/DestinationsByMe/DestinationsByMe";
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
 			<Route path="/register" component={Register} />
 			<Route path="/destinations/:destinationId/edit" component={EditDestination} />
 			<Route path="/destinations/:destinationId" component={DestinationDetails} />
+			<Route path="/destinations-by-me" component={DestinationsByMe} />
 		</Switch>
 		</AuthContext.Provider>
 	);

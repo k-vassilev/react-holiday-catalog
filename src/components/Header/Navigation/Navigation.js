@@ -40,6 +40,9 @@ const Navigation = () => {
 						<NavLink to="/destinations-by-me">Added by me</NavLink>
 					</li>
 					<li>
+						<NavLink to="/profile">Profile</NavLink>
+					</li>
+					<li>
 						<NavLink to="/" onClick={logout}>Logout</NavLink>
 					</li>
 				</ul>

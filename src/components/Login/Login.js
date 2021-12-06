@@ -5,9 +5,6 @@ import * as authService from "../../services/authService";
 import { useContext } from "react";
 import AuthContext from '../../contexts/AuthContext';
 
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-
 const Login = ({
 	history,
 }) => {
@@ -32,8 +29,6 @@ const Login = ({
 	}
 
 	return(
-		<>
-		<Header />
 		<section id="login-page" className="login">
             <form id="login-form" onSubmit={onLoginSubmitHandler}>
                 <fieldset>
@@ -54,8 +49,6 @@ const Login = ({
                 </fieldset>
             </form>
         </section>
-		<Footer />
-		</>
 	)
 }
 

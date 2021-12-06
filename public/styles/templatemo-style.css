@@ -658,6 +658,10 @@ hr { border-top: 1px solid #111010; }
 }
 .contact-social .tm-social-icon:last-child { margin-right: 0; }
 
+.logo-container{
+	width: 44%!important;
+}
+
 @media screen and (max-width: 1199px) {
 	.tm-banner-title { font-size: 50px; }
 	.tm-banner-subtitle { font-size: 30px; }

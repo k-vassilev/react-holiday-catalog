@@ -2,8 +2,6 @@ import { useEffect, useState, useContext } from 'react';
 import { isAuth	} from "../../hoc/isAuth";
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 import './EditDestination.css';
 
@@ -49,8 +47,6 @@ const EditDestination = ({
 
 	if(destination.acf){
 		return (
-			<>
-			<Header />
 			<section id="edit-page" className="edit">
 				<form id="edit-form" onSubmit={onSaveSubmit}>
 					<fieldset>
@@ -77,16 +73,10 @@ const EditDestination = ({
 					</fieldset>
 				</form>
 			</section>
-			<Footer />
-			</>
 		)
 	} else {
 		return (
-			<>
-				<Header />
-				<h2>Loading...</h2>
-				<Footer />
-			</>
+			<h2>Loading...</h2>
 		)
 	}
 }

@@ -3,8 +3,6 @@ import { isAuth	} from "../../hoc/isAuth";
 
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import "./AddDestination.css";
 
 const AddDestination = ({
@@ -36,8 +34,6 @@ const AddDestination = ({
     };
 
 	return(
-		<>
-		<Header />
 		<section id="create-page" className="create">
             <form id="create-form" onSubmit={onAddDestinationSubmitHandler}>
                 <fieldset>
@@ -99,8 +95,6 @@ const AddDestination = ({
                 </fieldset>
             </form>
         </section>
-		<Footer />
-		</>
 	)
 }
 

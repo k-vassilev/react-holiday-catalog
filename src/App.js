@@ -2,7 +2,6 @@ import { Route, Switch } from "react-router-dom";
 import { useState } from 'react';
 
 import AuthContext from "./contexts/AuthContext";
-
 import HomePage from "./components/HomePage/HomePage";
 import HolidayCatalog from "./components/HolidayCatalog/HolidaysCatalog";
 import AddDestination from "./components/AddDestination/AddDestination";
@@ -11,6 +10,9 @@ import Register from "./components/Register/Register";
 import DestinationDetails from "./components/DestinationDetails/DestinationDetails";
 import EditDestination from "./components/EditDestination/EditDestination";
 import DestinationsByMe from "./components/DestinationsByMe/DestinationsByMe";
+import Profile from "./components/Profile/Profile";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function App() {
 
@@ -21,16 +23,19 @@ function App() {
 
 	return (
 		<AuthContext.Provider value={{user, authUser}}>
-		<Switch>
-			<Route path="/" exact component={HomePage} />
-			<Route path="/destinations" exact component={HolidayCatalog} />
-			<Route path="/add-destination" component={AddDestination} />
-			<Route path="/login" component={Login} />
-			<Route path="/register" component={Register} />
-			<Route path="/destinations/:destinationId/edit" component={EditDestination} />
-			<Route path="/destinations/:destinationId" component={DestinationDetails} />
-			<Route path="/destinations-by-me" component={DestinationsByMe} />
-		</Switch>
+			<Header/>
+				<Switch>
+					<Route path="/" exact component={HomePage} />
+					<Route path="/destinations" exact component={HolidayCatalog} />
+					<Route path="/add-destination" component={AddDestination} />
+					<Route path="/login" component={Login} />
+					<Route path="/register" component={Register} />
+					<Route path="/destinations/:destinationId/edit" component={EditDestination} />
+					<Route path="/destinations/:destinationId" component={DestinationDetails} />
+					<Route path="/destinations-by-me" component={DestinationsByMe} />
+					<Route path="/profile" component={Profile} />
+				</Switch>
+			<Footer/>
 		</AuthContext.Provider>
 	);
 }

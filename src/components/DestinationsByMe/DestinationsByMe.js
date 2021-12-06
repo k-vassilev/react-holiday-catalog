@@ -6,8 +6,6 @@ import AuthContext from "../../contexts/AuthContext";
 import * as holidayService from "../../services/holidayService";
 
 import './DestinationsByMe.css';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import PopularHolidayCard from "../MostPopularHolidays/PopularHolidayCard/PopularHolidayCard";
 
 const DestinationsByMe = () => {
@@ -24,8 +22,6 @@ const DestinationsByMe = () => {
 	}, []);
 
 	return (
-		<>
-			<Header/>
 			<section className="tm-white-bg section-padding-bottom">
 				<div className="container">
 					<div className="row">
@@ -41,8 +37,6 @@ const DestinationsByMe = () => {
 					</div>
 				</div>
 			</section>
-			<Footer/>
-		</>
 	);
 };
 

@@ -1,9 +1,5 @@
 import './Register.css';
-
 import * as authService from "../../services/authService";
-
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 
 const Register = ({
 	history,
@@ -31,8 +27,6 @@ const Register = ({
 	}
 
 	return(
-		<>
-		<Header />
 		<section id="register-page" className="register">
             <form id="register-form" method="POST" onSubmit={onRegisterSubmitHandler}>
                 <fieldset>
@@ -77,8 +71,6 @@ const Register = ({
                 </fieldset>
             </form>
         </section>
-		<Footer />
-		</>
 	)
 }
 

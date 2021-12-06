@@ -4,8 +4,6 @@ import { NavLink } from "react-router-dom";
 import * as holidayService from "../../services/holidayService";
 import AuthContext from '../../contexts/AuthContext';
 import DestinationAuthor from './DestinationAuthor/DestinationAuthor';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import './DestinationDetails.css';
 
 const DestinationDetails = ({
@@ -44,8 +42,6 @@ const DestinationDetails = ({
 
 	if(destination.acf){
 		return (
-			<>
-			<Header />
 			<section id="game-details">
 				<h1>Destination Details</h1>
 				<div className="info-section">
@@ -77,16 +73,10 @@ const DestinationDetails = ({
 					}
 				</div>
 			</section>
-			<Footer />
-			</>
 		)
 	} else{
 		return (
-			<>
-				<Header />
-				<h2>Loading...</h2>
-				<Footer />
-			</>
+			<h2>Loading...</h2>
 		)
 	}
 	

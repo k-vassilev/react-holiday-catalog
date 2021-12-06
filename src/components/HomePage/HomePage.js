@@ -3,11 +3,9 @@ import * as userService from "../../services/userService";
 import { useState, useEffect } from "react";
 import "./HomePage.css";
 
-import Header from "../Header/Header";
 import Banner from "../Banner/Banner";
 import PopularHolidayCard from "../MostPopularHolidays/PopularHolidayCard/PopularHolidayCard";
 import Author from "../Authors/Author/Author";
-import Footer from "../Footer/Footer";
 
 const HomePage = () => {
 	const [mostPopularHoliday, setMostPopularHoliday] = useState([]);
@@ -26,7 +24,6 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Header />
 			<Banner />
 			<section className="tm-white-bg section-padding-bottom">
 				<div className="container">
@@ -58,7 +55,6 @@ const HomePage = () => {
 					<p>No authors yet</p>
 				)}
 			</section>
-			<Footer />
 		</>
 	);
 };

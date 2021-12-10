@@ -1,9 +1,24 @@
 import { NavLink } from "react-router-dom";
+// import { useState } from "react";
 
 import "./HolidayCard.css";
 
 const HolidayCard = (props) => {
 	let likesNumber = props.destination.acf.liked_by_ids;
+	
+	// const [likes, setLikes] = useState(0);
+	
+
+	const likeHandler = (e) => {
+		e.preventDefault();
+		// if(likesNumber){
+		// 	likesNumber.push({"id":`5`});
+		// }
+		
+		// console.log(likesNumber);
+		
+	}
+	
 	return (
 		<>
 			<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
@@ -13,7 +28,7 @@ const HolidayCard = (props) => {
 					<h3>{props.destination.acf.destination_description}</h3>
 					<p className="tm-date">{props.destination.acf.destination_publish_date}</p>
 					<div className="tm-home-box-2-container">
-						<NavLink to="#" className="tm-home-box-2-link">
+						<NavLink to="#" onClick={likeHandler} className="tm-home-box-2-link">
 								<i className="fa fa-heart tm-home-box-2-icon border-right">
 									{" "}
 									{

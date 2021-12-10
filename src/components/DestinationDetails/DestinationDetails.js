@@ -14,7 +14,7 @@ const DestinationDetails = ({
 	const userToken = useContext(AuthContext).user.token;
 	let userInfo = useContext(AuthContext).user;
 	let userID;
-	let likedByCurrentUser = false;
+	// let likedByCurrentUser = false;
 
 	if(userToken){
 		userID = userInfo[0].id;
@@ -34,45 +34,45 @@ const DestinationDetails = ({
 	const onLike = (e) => {
 		e.preventDefault();
 
-		if(destination.acf){
-			let destinationLikedBy ={};
-			let likedBy = [];
+		// if(destination.acf){
+		// 	let destinationLikedBy ={};
+		// 	let likedBy = [];
 
-			likedBy = destination.acf.liked_by_ids;
+		// 	likedBy = destination.acf.liked_by_ids;
 	
-				destinationLikedBy = {
-					'acf': {
-						'liked_by_ids': likedBy,
-					},
-				};
+		// 		destinationLikedBy = {
+		// 			'acf': {
+		// 				'liked_by_ids': likedBy,
+		// 			},
+		// 		};
 				
-			if(destination.acf.liked_by_ids){
-				likedBy = destination.acf.liked_by_ids;
+		// 	if(destination.acf.liked_by_ids){
+		// 		likedBy = destination.acf.liked_by_ids;
 	
-				destinationLikedBy = {
-					'acf': {
-						'liked_by_ids': likedBy,
-					},
-				};
+		// 		destinationLikedBy = {
+		// 			'acf': {
+		// 				'liked_by_ids': likedBy,
+		// 			},
+		// 		};
 				
-				likedBy.forEach((x) => {
-					if(x.id === userID){
-						likedByCurrentUser = x.id;
-					}
-				});
-			}
+		// 		likedBy.forEach((x) => {
+		// 			if(x.id === userID){
+		// 				likedByCurrentUser = x.id;
+		// 			}
+		// 		});
+		// 	}
 
-			if(likedByCurrentUser){
-				console.log('You have already liked it');
-				console.log(likedBy);
-			}else{
-				console.log("You can like this destination");
-				console.log(userID);
-				let currentUserObj = {"id":`${userID}`}
-				likedBy.push(currentUserObj);
-				console.log(destinationLikedBy);
-			}
-		}
+		// 	if(likedByCurrentUser){
+		// 		console.log('You have already liked it');
+		// 		console.log(likedBy);
+		// 	}else{
+		// 		console.log("You can like this destination");
+		// 		console.log(userID);
+		// 		let currentUserObj = {"id":`${userID}`}
+		// 		likedBy.push(currentUserObj);
+		// 		console.log(destinationLikedBy);
+		// 	}
+		// }
 	}
 
 	

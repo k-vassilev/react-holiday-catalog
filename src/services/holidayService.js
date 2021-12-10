@@ -53,3 +53,14 @@ export const deleteDestination = (destinationId, userToken) => {
     });
 }
 
+export const likeDestination = (destinationId, updatedDestination, userToken) => {
+	return fetch(`${baseUrl}/destinations/${destinationId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+			'Authorization': 'Bearer ' + userToken,
+        },
+        body: JSON.stringify(updatedDestination)
+    });
+};
+

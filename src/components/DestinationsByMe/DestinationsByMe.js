@@ -16,10 +16,9 @@ const DestinationsByMe = () => {
 
 	useEffect(() => {
 		holidayService.getOwnDestinations(authorId).then((result) => {
-			console.log(result);
 			setOwnDestinations(result);
 		});
-	}, []);
+	}, [authorId]);
 
 	return (
 			<section className="tm-white-bg section-padding-bottom">

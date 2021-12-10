@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./HolidayCard.css";
 
 const HolidayCard = (props) => {
+	let likesNumber = props.destination.acf.liked_by_ids;
 	return (
 		<>
 			<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
@@ -13,7 +14,12 @@ const HolidayCard = (props) => {
 					<p className="tm-date">{props.destination.acf.destination_publish_date}</p>
 					<div className="tm-home-box-2-container">
 						<NavLink to="#" className="tm-home-box-2-link">
-							<i className="fa fa-heart tm-home-box-2-icon border-right"></i>
+								<i className="fa fa-heart tm-home-box-2-icon border-right">
+									{" "}
+									{
+										likesNumber ? likesNumber.length : null
+									}
+								</i>
 						</NavLink>
 						<NavLink to={`/destinations/${props.destination.id}`} className="tm-home-box-2-link">
 							<span className="tm-home-box-2-description">{props.destination.acf.destination_title}</span>

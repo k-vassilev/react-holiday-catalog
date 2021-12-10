@@ -14,6 +14,7 @@ const DestinationDetails = ({
 	const userToken = useContext(AuthContext).user.token;
 	let userInfo = useContext(AuthContext).user;
 	let userID;
+	let likedByCurrentUser = false;
 
 	if(userToken){
 		userID = userInfo[0].id;
@@ -27,6 +28,54 @@ const DestinationDetails = ({
 		getOneHoliday();
 		
 	}, [match.params.destinationId]);
+
+	
+	
+	const onLike = (e) => {
+		e.preventDefault();
+
+		if(destination.acf){
+			let destinationLikedBy ={};
+			let likedBy = [];
+
+			likedBy = destination.acf.liked_by_ids;
+	
+				destinationLikedBy = {
+					'acf': {
+						'liked_by_ids': likedBy,
+					},
+				};
+				
+			if(destination.acf.liked_by_ids){
+				likedBy = destination.acf.liked_by_ids;
+	
+				destinationLikedBy = {
+					'acf': {
+						'liked_by_ids': likedBy,
+					},
+				};
+				
+				likedBy.forEach((x) => {
+					if(x.id === userID){
+						likedByCurrentUser = x.id;
+					}
+				});
+			}
+
+			if(likedByCurrentUser){
+				console.log('You have already liked it');
+				console.log(likedBy);
+			}else{
+				console.log("You can like this destination");
+				console.log(userID);
+				let currentUserObj = {"id":`${userID}`}
+				likedBy.push(currentUserObj);
+				console.log(destinationLikedBy);
+			}
+		}
+	}
+
+	
 
 	const onDelete = (e) => {
         e.preventDefault();
@@ -49,6 +98,9 @@ const DestinationDetails = ({
 					<div className="center-cropped" style={{ backgroundImage: `url(${destination.acf.destination_image_url})` }}>
 						</div>
 						<h1>Destination Title</h1>
+							<form onSubmit={onLike}>
+                				<button className="button">Like</button>
+            				</form>
 						<span className="levels">{destination.acf.destination_likes}</span>
 						<p className="type">{destination.acf.destination_title}</p>
 					</div>

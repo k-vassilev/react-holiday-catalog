@@ -6,6 +6,7 @@ import AuthContext from "../../../contexts/AuthContext";
 import "./HolidayCard.css";
 
 const HolidayCard = (props) => {
+	let alreadyLiked = false;
 	let likes = [];
 	let likesNumber = props.destination.acf.liked_by_ids;
 	if (likesNumber){
@@ -26,8 +27,16 @@ const HolidayCard = (props) => {
         const destinationId = props.destination.id;
 
 		if(userToken){
+			likes.map((x) => {
+				if(x.id == userID){
+					alreadyLiked = true;
+					alert('You have already liked this destination');
+
+				}
+			})
 			likes.push({"id":`${userID}`})
-			console.log(likes);
+		}else{
+			alert('You must be logged to vote!');
 		}
 
 		const updatedDestination = {
@@ -36,10 +45,9 @@ const HolidayCard = (props) => {
 		  	},
 		  };
 
-        holidayService.updateDestination(destinationId, updatedDestination, userToken)
-            .then(() => {
-                return;
-            });
+        if(!alreadyLiked && userToken){
+			holidayService.updateDestination(destinationId, updatedDestination, userToken);
+		}
     }
 	
 	return (

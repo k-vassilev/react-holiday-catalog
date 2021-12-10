@@ -1,23 +1,46 @@
 import { NavLink } from "react-router-dom";
-// import { useState } from "react";
+import { useContext  } from "react";
+import * as holidayService from "../../../services/holidayService";
+import AuthContext from "../../../contexts/AuthContext";
 
 import "./HolidayCard.css";
 
 const HolidayCard = (props) => {
+	let likes = [];
 	let likesNumber = props.destination.acf.liked_by_ids;
-	
-	// const [likes, setLikes] = useState(0);
-	
+	if (likesNumber){
+		likes = likesNumber;
+	}
+
+	const userToken = useContext(AuthContext).user.token;
+	let userInfo = useContext(AuthContext).user;
+	let userID;
+
+	if(userToken){
+		userID = userInfo[0].id;
+	}
 
 	const likeHandler = (e) => {
-		e.preventDefault();
-		// if(likesNumber){
-		// 	likesNumber.push({"id":`5`});
-		// }
-		
-		// console.log(likesNumber);
-		
-	}
+        e.preventDefault();
+
+        const destinationId = props.destination.id;
+
+		if(userToken){
+			likes.push({"id":`${userID}`})
+			console.log(likes);
+		}
+
+		const updatedDestination = {
+		  	'acf': {
+				'liked_by_ids': likes,
+		  	},
+		  };
+
+        holidayService.updateDestination(destinationId, updatedDestination, userToken)
+            .then(() => {
+                return;
+            });
+    }
 	
 	return (
 		<>

@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useContext  } from "react";
+import { useContext } from "react";
 import * as holidayService from "../../../services/holidayService";
 import AuthContext from "../../../contexts/AuthContext";
 
@@ -28,11 +28,12 @@ const HolidayCard = (props) => {
 
 		if(userToken){
 			likes.map((x) => {
-				if(x.id == userID){
+				if(Number(x.id) === Number(userID)){
 					alreadyLiked = true;
 					alert('You have already liked this destination');
-
 				}
+				// Fixing callback notification in console
+				return true;
 			})
 			likes.push({"id":`${userID}`})
 		}else{

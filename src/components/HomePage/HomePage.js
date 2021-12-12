@@ -10,7 +10,7 @@ import Author from "../Authors/Author/Author";
 const HomePage = () => {
 	const [mostPopularHoliday, setMostPopularHoliday] = useState([]);
 	useEffect(() => {
-		holidayService.getTopFourDestinations().then((result) => {
+		holidayService.getFourNewestDestinations().then((result) => {
 			setMostPopularHoliday(result);
 		});
 	}, []);
@@ -30,7 +30,7 @@ const HomePage = () => {
 					<div className="row">
 						<div className="tm-section-header section-margin-top">
 							<div className="col-lg-4 col-md-6 col-sm-6">
-								<h2 className="tm-section-title">Most Popular Destinations:</h2>
+								<h2 className="tm-section-title">Recently added destinations:</h2>
 							</div>
 						</div>
 						{mostPopularHoliday.length > 0 ? (

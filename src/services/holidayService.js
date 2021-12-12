@@ -9,7 +9,7 @@ export const getAllDestinations = () => {
 		.then(res => res.json());
 }
 
-export const getTopFourDestinations = () => {
+export const getFourNewestDestinations = () => {
 	return fetch(
 		`${baseUrl}/destinations?per_page=4`)
 		.then(res => res.json());

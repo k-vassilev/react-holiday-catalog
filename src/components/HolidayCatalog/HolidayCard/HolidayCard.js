@@ -1,17 +1,22 @@
 import { NavLink } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import * as holidayService from "../../../services/holidayService";
 import AuthContext from "../../../contexts/AuthContext";
 
 import "./HolidayCard.css";
 
 const HolidayCard = (props) => {
+	let voteNumber = 0;
+	const destinationId = props.destination.id;
+	let likesNum;
 	let alreadyLiked = false;
 	let likes = [];
 	let likesNumber = props.destination.acf.liked_by_ids;
 	if (likesNumber){
 		likes = likesNumber;
+		voteNumber = likes.length;
 	}
+	let[testNum, setTestNum] = useState(voteNumber);
 
 	const userToken = useContext(AuthContext).user.token;
 	let userInfo = useContext(AuthContext).user;
@@ -24,7 +29,7 @@ const HolidayCard = (props) => {
 	const likeHandler = (e) => {
         e.preventDefault();
 
-        const destinationId = props.destination.id;
+		
 
 		if(userToken){
 			likes.map((x) => {
@@ -47,10 +52,15 @@ const HolidayCard = (props) => {
 		  };
 
         if(!alreadyLiked && userToken){
-			holidayService.updateDestination(destinationId, updatedDestination, userToken);
+			holidayService.updateDestination(destinationId, updatedDestination, userToken).then(result => (
+				holidayService.getOne(destinationId).then(response => {
+					likesNum = response.acf.liked_by_ids.length;
+					setTestNum(likesNum);
+				})
+			));
 		}
     }
-	
+
 	return (
 		<>
 			<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
@@ -64,7 +74,7 @@ const HolidayCard = (props) => {
 								<i className="fa fa-heart tm-home-box-2-icon border-right">
 									{" "}
 									{
-										likesNumber ? likesNumber.length : null
+										testNum ? testNum : null
 									}
 								</i>
 						</NavLink>
@@ -75,6 +85,7 @@ const HolidayCard = (props) => {
 						<i className="fa fa-edit tm-home-box-2-icon border-left"></i>
 						</NavLink>
 					</div>
+
 				</div>
 			</div>
 		</>

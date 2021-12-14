@@ -25,7 +25,7 @@ const Navigation = () => {
 		localStorage.clear();
 		contextValue.authUser({});
 		setIsLogged(false);
-		{toast.success('Successfully logged out!')}
+		toast.success('Successfully logged out!');
 	};
 
 	if (isLogged) {

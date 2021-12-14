@@ -31,13 +31,13 @@ const Register = ({
 
 		if (!emailError.name && !userNameError.name && !passwordError.name && !rePassError.name){
 			authService.createUser(userData).then(() => {
-				{toast.success('Successfully registered!')}
+				toast.success('Successfully registered!');
 				setTimeout(() => {
 					history.push('/')
 				}, 1500);
 			});
 		} else {
-			{toast.error('Please fix the bellow errors and try again.')}
+			toast.error('Please fix the bellow errors and try again.');
 		}
 	}
 
@@ -86,8 +86,8 @@ const Register = ({
 	
 	return(
 		<section id="register-page" className="register">
-			<Toaster/>
             <form id="register-form" method="POST" onSubmit={onRegisterSubmitHandler}>
+			<Toaster/>
                 <fieldset>
                     <legend>Register Form</legend>
                     <span className="field">

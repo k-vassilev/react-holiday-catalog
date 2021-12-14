@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { isAuth	} from "../../hoc/isAuth";
-
+import { Alert } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
 import "./AddDestination.css";
@@ -9,6 +10,30 @@ const AddDestination = ({
 	history,
 }) => {
 	const userToken = useContext(AuthContext).user.token;
+	const [destinationNameError, setDestinationNameError] = useState({name: false});
+	const [imageUrlUserNameError, setImageUrlUserNameError] = useState({name: false});
+
+	const destinationNameHandler = (e) => {
+        let destinationName = e.target.value;
+        if (destinationName.length < 4) {
+            setDestinationNameError(state => ({...state, name: 'Destination`s name should be at least 4 characters!'}))
+        } else {
+            setDestinationNameError(state => ({...state, name: false}))
+        }
+    };
+
+	const imageUrlChangeHandler = (e) => {
+		let validImageUrl = String(e.target.value)
+		.toLowerCase()
+		.match(
+		  /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|jpeg)/g
+		)
+		if (! validImageUrl) {
+			setImageUrlUserNameError(state => ({...state, name: 'Please provide a valid image URL!'}))
+		} else {
+			setImageUrlUserNameError(state => ({...state, name: false}))
+		}
+    };
 
 	const onAddDestinationSubmitHandler = (e) => {
         e.preventDefault();
@@ -25,37 +50,47 @@ const AddDestination = ({
 			  	"destination_image_url": imgUrl,
 			  	"destination_area": area,
 		  	}
-	  };
+		};
 
-		holidayService.createDestination(destination, userToken)
-            .then(() => {
-                history.push('/');
-            })
+		if (!destinationNameError.name && !imageUrlUserNameError.name){
+			holidayService.createDestination(destination, userToken)
+			.then(() => {
+				toast.success('Destination successfully added!');
+				setTimeout(() => {
+					history.push('/')
+				}, 1500);
+			});
+		} else {
+			toast.error('Fix the below errors and try to add the destination again!');
+		}
     };
 
 	return(
 		<section id="create-page" className="create">
+			<Toaster/>
             <form id="create-form" onSubmit={onAddDestinationSubmitHandler}>
                 <fieldset>
                     <legend>Add New Destination</legend>
-                    <p className="field">
+                    <div className="field">
                         <label htmlFor="name">Destination Name</label>
-                        <span className="input">
-                            <input type="text" name="title" id="title" placeholder="Name"/>
+                        <span className="input" style={{borderColor: destinationNameError.name ? 'red' : 'inherit'}}>
+                            <input type="text" name="title" id="title" placeholder="Name" onBlur={destinationNameHandler} required/>
                         </span>
-                    </p>
+						<Alert variant="danger" show={destinationNameError.name}>{destinationNameError.name}</Alert>
+                    </div>
                     <p className="field">
                         <label htmlFor="description">Destination Description</label>
                         <span className="input">
                             <textarea name="description" id="description" placeholder="Description"></textarea>
                         </span>
                     </p>
-                    <p className="field">
+                    <div className="field">
                         <label htmlFor="imgUrl">Destination Image URL</label>
-                        <span className="input">
-                            <input type="text" name="imgUrl" id="imgUrl" placeholder="Image"/>
+                        <span className="input" style={{borderColor: imageUrlUserNameError.name ? 'red' : 'inherit'}}>
+                            <input type="text" name="imgUrl" id="imgUrl" placeholder="Image" onBlur={imageUrlChangeHandler} required/>
                         </span>
-                    </p>
+						<Alert variant="danger" show={imageUrlUserNameError.name}>{imageUrlUserNameError.name}</Alert>
+                    </div>
                     <p className="field">
                         <label htmlFor="area">Area</label>
                         <span className="input">

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Alert } from 'react-bootstrap';
+import toast, { Toaster } from 'react-hot-toast';
 import './Register.css';
 import * as authService from "../../services/authService";
 
@@ -8,7 +9,6 @@ const Register = ({
 }) => {
 	const [emailError, setEmailErrors] = useState({name: false});
 	const [userNameError, setUserNameError] = useState({name: false});
-	const [imageUrlNameError, setImageUrlUserNameError] = useState({name: false});
 	const [passwordError, setPasswordError] = useState({name: false});
 	const [rePassError, setRePassError] = useState({name: false});
 
@@ -28,10 +28,16 @@ const Register = ({
 				user_description: userDescription,
 			}
 		}
-		if(!emailError.name && !userNameError.name && !imageUrlNameError && !passwordError && !rePassError){
+
+		if (!emailError.name && !userNameError.name && !passwordError.name && !rePassError.name){
 			authService.createUser(userData).then(() => {
-				history.push('/');
+				{toast.success('Successfully registered!')}
+				setTimeout(() => {
+					history.push('/')
+				}, 1500);
 			});
+		} else {
+			{toast.error('Please fix the bellow errors and try again.')}
 		}
 	}
 
@@ -51,31 +57,18 @@ const Register = ({
 	const nameChangeHandler = (e) => {
         let currentName = e.target.value;
         if (currentName.length < 5) {
-            setUserNameError(state => ({...state, name: 'Your name sould be at least 5 characters!'}))
+            setUserNameError(state => ({...state, name: 'Your name should be at least 5 characters!'}))
         } else if (currentName.length > 10) {
-            setUserNameError(state => ({...state, name: 'Your name sould be max 10 characters!'}))
+            setUserNameError(state => ({...state, name: 'Your name should be max 10 characters!'}))
         } else {
             setUserNameError(state => ({...state, name: false}))
         }
     };
 
-	const imageUrlChangeHandler = (e) => {
-		let validImageUrl = String(e.target.value)
-		.toLowerCase()
-		.match(
-		  /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g
-		)
-		if (! validImageUrl) {
-			setImageUrlUserNameError(state => ({...state, name: 'Please provide a valid image URL!'}))
-		} else {
-			setImageUrlUserNameError(state => ({...state, name: false}))
-		}
-    };
-
 	const passwordChangeHandler = (e) => {
         let password = e.target.value;
         if (password.length < 6) {
-            setPasswordError(state => ({...state, name: 'Your password sould be at least 6 characters!'}))
+            setPasswordError(state => ({...state, name: 'Your password should be at least 6 characters!'}))
         } else {
             setPasswordError(state => ({...state, name: false}))
         }
@@ -90,9 +83,10 @@ const Register = ({
             setRePassError(state => ({...state, name: false}))
         }
     };
-
+	
 	return(
 		<section id="register-page" className="register">
+			<Toaster/>
             <form id="register-form" method="POST" onSubmit={onRegisterSubmitHandler}>
                 <fieldset>
                     <legend>Register Form</legend>
@@ -112,10 +106,9 @@ const Register = ({
                     </span>
 					<span className="field">
                         <label htmlFor="userImg">Image Url</label>
-                        <span className="input" style={{borderColor: imageUrlNameError.name ? 'red' : 'inherit'}}>
-                            <input type="text" name="userImg" id="userImg" placeholder="Image Url" onBlur={imageUrlChangeHandler}/>
+                        <span className="input">
+                            <input type="text" name="userImg" id="userImg" placeholder="Image Url"/>
                         </span>
-						<Alert variant="danger" show={imageUrlNameError.name}>{imageUrlNameError.name}</Alert>
                     </span>
 					<p className="field">
                         <label htmlFor="userDescription">Introuduce yourself</label>

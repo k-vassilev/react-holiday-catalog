@@ -1,7 +1,7 @@
 import './Login.css';
 
 import * as authService from "../../services/authService";
-
+import toast, { Toaster } from 'react-hot-toast';
 import { useContext } from "react";
 import AuthContext from '../../contexts/AuthContext';
 
@@ -23,13 +23,21 @@ const Login = ({
 		authService.getBearerToken(userData).then((response) => {
 			authService.getUserByEmail(response.user_email).then((searchResult) => {
 				authUser({...searchResult, token: response.token});
-				history.push('/');
+				if(searchResult.length > 0){
+					toast.success('You have successfully logged in!');
+						setTimeout(() => {
+							history.push('/');
+						}, 2000);
+				}else {
+					toast.error('Your username or password were incorrect, please try again');
+				}
 			})
 		});
 	}
 
 	return(
 		<section id="login-page" className="login">
+			<Toaster/>
             <form id="login-form" onSubmit={onLoginSubmitHandler}>
                 <fieldset>
                     <legend>Login Form</legend>

@@ -1,6 +1,6 @@
 import { Route, Switch } from "react-router-dom";
 import { useState } from 'react';
-import toast, { Toaster } from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
 
 import AuthContext from "./contexts/AuthContext";
 import HomePage from "./components/HomePage/HomePage";
@@ -24,7 +24,7 @@ function App() {
 
 	return (
 		<AuthContext.Provider value={{user, authUser}}>
-			<Toaster/>
+			<Toaster position="bottom-right" reverseOrder={false}/>
 			<Header/>
 				<Switch>
 					<Route path="/" exact component={HomePage} />

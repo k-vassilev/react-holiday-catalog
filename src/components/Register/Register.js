@@ -33,13 +33,13 @@ const Register = ({
 			try { await authService.createUser(userData);
 				toast.success('Successfully registered!');
 					setTimeout(() => {
-						history.push('/')
+						history.push('/login')
 					}, 1500);
 			} catch (err) {
 				toast.error('The email is already registered!');
 			}
 		} else {
-			toast.error('Please fix the bellow errors and try again.');
+			toast.error('Please fix errors on the screen and try again.');
 		}
 	}
 

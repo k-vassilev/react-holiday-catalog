@@ -34,3 +34,12 @@ label > span {
     cursor: pointer;
     text-align: center;
 }
+.fade {
+	opacity: 80;
+}
+span{
+	display: inline;
+}
+.button.submit {
+	display: inherit;
+}

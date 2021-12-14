@@ -28,9 +28,11 @@ const Register = ({
 				user_description: userDescription,
 			}
 		}
-		authService.createUser(userData).then(() => {
-			history.push('/');
-		});
+		if(!emailError.name && !userNameError.name && !imageUrlNameError && !passwordError && !rePassError){
+			authService.createUser(userData).then(() => {
+				history.push('/');
+			});
+		}
 	}
 
 	const emailChangeHandler = (e) => {
@@ -82,7 +84,6 @@ const Register = ({
 	const rePassChangeHandler = (e) => {
         let rePass = e.target.value;
 		let password = document.querySelector('#password');
-		console.log(password.value);
         if (rePass !== password.value) {
             setRePassError(state => ({...state, name: 'Your passwords do not match!'}))
         } else {

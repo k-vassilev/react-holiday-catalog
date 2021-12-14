@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import * as holidayService from "../../../services/holidayService";
 import AuthContext from "../../../contexts/AuthContext";
 
@@ -36,13 +37,13 @@ const HolidayCard = (props) => {
 		if (userToken){
 			if (likedBy.some(user => user.id === `${userID}`)) {
 				alreadyLiked = true;
-				alert('You have already liked this destination');
+				toast.error('You have already liked this destination!');
 				return;
 			  } else{
 				likedBy.push({"id":`${userID}`});
 			  }
 		} else {
-			alert('You must be logged to vote!');
+			toast.error('You must be logged to vote!');
 			return;
 		}
 
@@ -50,6 +51,7 @@ const HolidayCard = (props) => {
 			holidayService.updateDestination(destinationId, updatedDestination, userToken).then(() => (
 				holidayService.getOne(destinationId).then(response => {
 					setLikesCount(response.acf.liked_by_ids.length);
+					toast.success('You have successfully liked the destination!');
 				})
 			));
 		}
@@ -57,6 +59,7 @@ const HolidayCard = (props) => {
 
 	return (
 		<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
+			<Toaster/>
 			<div className="tm-home-box-2">
 				<div className="center-cropped" style={{ backgroundImage: `url(${props.destination.acf.destination_image_url})` }}>
 				</div>

@@ -1,5 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import { NavLink } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 import * as holidayService from "../../services/holidayService";
 import AuthContext from '../../contexts/AuthContext';
@@ -35,14 +36,19 @@ const DestinationDetails = ({
 
         holidayService.deleteDestination(destinationId, userToken)
             .then(() => {
-                history.push(`/destinations`);
-                return;
+				toast.success('You have successfully deleted the destination!');
+				setTimeout(() => {
+					history.push(`/destinations`);
+                	return;
+				}, 1500);
+                
             });
     }
 
 	if(destination.acf){
 		return (
 			<section id="game-details">
+				<Toaster/>
 				<h1>Destination Details</h1>
 				<div className="info-section">
 					<div className="game-header">

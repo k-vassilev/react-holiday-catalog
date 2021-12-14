@@ -27,7 +27,7 @@ const Login = ({
 					toast.success('You have successfully logged in!');
 						setTimeout(() => {
 							history.push('/');
-						}, 2000);
+						}, 1000);
 				}else {
 					toast.error('Your username or password were incorrect, please try again');
 				}

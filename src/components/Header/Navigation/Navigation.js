@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useContext } from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import AuthContext from "../../../contexts/AuthContext";
 import "./Navigation.css";
 
@@ -24,6 +25,7 @@ const Navigation = () => {
 		localStorage.clear();
 		contextValue.authUser({});
 		setIsLogged(false);
+		{toast.success('Successfully logged out!')}
 	};
 
 	if (isLogged) {
@@ -51,6 +53,7 @@ const Navigation = () => {
 	} else {
 		return (
 			<nav className="tm-nav">
+				<Toaster/>
 				<ul>
 					<li>
 						<NavLink to="/destinations">All Destinations</NavLink>

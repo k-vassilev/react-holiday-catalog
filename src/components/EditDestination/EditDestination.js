@@ -82,7 +82,6 @@ const EditDestination = ({
 	if(destination.acf){
 		return (
 			<section id="edit-page" className="edit">
-				<Toaster/>
 				<form id="edit-form" onSubmit={onSaveSubmit}>
 					<fieldset>
 						<legend>Edit my Destination</legend>

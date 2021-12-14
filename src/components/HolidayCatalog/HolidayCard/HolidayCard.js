@@ -59,7 +59,6 @@ const HolidayCard = (props) => {
 
 	return (
 		<div className="col-lg-3 col-md-3 col-sm-6 col-xs-6 col-xxs-12">
-			<Toaster/>
 			<div className="tm-home-box-2">
 				<div className="center-cropped" style={{ backgroundImage: `url(${props.destination.acf.destination_image_url})` }}>
 				</div>

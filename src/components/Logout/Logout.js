@@ -11,7 +11,8 @@ const Logout = () => {
 	}, 1500);
 	
 	return(
-		<Toaster/>
+		<>
+		</>
 	)
 }
 

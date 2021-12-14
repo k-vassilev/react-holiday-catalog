@@ -67,7 +67,6 @@ const AddDestination = ({
 
 	return(
 		<section id="create-page" className="create">
-			<Toaster/>
             <form id="create-form" onSubmit={onAddDestinationSubmitHandler}>
                 <fieldset>
                     <legend>Add New Destination</legend>

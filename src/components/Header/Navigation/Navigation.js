@@ -53,7 +53,6 @@ const Navigation = () => {
 	} else {
 		return (
 			<nav className="tm-nav">
-				<Toaster/>
 				<ul>
 					<li>
 						<NavLink to="/destinations">All Destinations</NavLink>

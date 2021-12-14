@@ -1,7 +1,7 @@
 import {useState, useEffect, useContext} from 'react';
 import { NavLink } from "react-router-dom";
 import toast, { Toaster } from 'react-hot-toast';
-
+import { confirm } from "react-confirm-box";
 import * as holidayService from "../../services/holidayService";
 import AuthContext from '../../contexts/AuthContext';
 import DestinationAuthor from './DestinationAuthor/DestinationAuthor';
@@ -29,26 +29,29 @@ const DestinationDetails = ({
 		
 	}, [match.params.destinationId]);
 
-	const onDelete = (e) => {
+	const onDelete = async(e) => {
         e.preventDefault();
 
-        const destinationId = match.params.destinationId;
+		const result = await confirm("Are you sure?");
+		if (result) {
+			const destinationId = match.params.destinationId;
 
-        holidayService.deleteDestination(destinationId, userToken)
+        	holidayService.deleteDestination(destinationId, userToken)
             .then(() => {
 				toast.success('You have successfully deleted the destination!');
 				setTimeout(() => {
 					history.push(`/destinations`);
                 	return;
 				}, 1500);
-                
             });
+		  }
+		  toast.error('You have not deleted the destination!');
+        
     }
 
 	if(destination.acf){
 		return (
 			<section id="game-details">
-				<Toaster/>
 				<h1>Destination Details</h1>
 				<div className="info-section">
 					<div className="game-header">

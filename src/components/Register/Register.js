@@ -87,7 +87,6 @@ const Register = ({
 	return(
 		<section id="register-page" className="register">
             <form id="register-form" method="POST" onSubmit={onRegisterSubmitHandler}>
-			<Toaster/>
                 <fieldset>
                     <legend>Register Form</legend>
                     <span className="field">

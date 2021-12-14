@@ -37,7 +37,6 @@ const Login = ({
 
 	return(
 		<section id="login-page" className="login">
-			<Toaster/>
             <form id="login-form" onSubmit={onLoginSubmitHandler}>
                 <fieldset>
                     <legend>Login Form</legend>

@@ -12,7 +12,7 @@ const Register = ({
 	const [passwordError, setPasswordError] = useState({name: false});
 	const [rePassError, setRePassError] = useState({name: false});
 
-	const onRegisterSubmitHandler = (e) => {
+	const onRegisterSubmitHandler = async (e) => {
 		e.preventDefault();
 
 		const formData = new FormData(e.target);
@@ -30,12 +30,14 @@ const Register = ({
 		}
 
 		if (!emailError.name && !userNameError.name && !passwordError.name && !rePassError.name){
-			authService.createUser(userData).then(() => {
+			try { await authService.createUser(userData);
 				toast.success('Successfully registered!');
-				setTimeout(() => {
-					history.push('/')
-				}, 1500);
-			});
+					setTimeout(() => {
+						history.push('/')
+					}, 1500);
+			} catch (err) {
+				toast.error('The email is already registered!');
+			}
 		} else {
 			toast.error('Please fix the bellow errors and try again.');
 		}

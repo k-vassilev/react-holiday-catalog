@@ -5,7 +5,6 @@ export async function createUser(userData) {
 		username: "PatrixBg",
 		password: "18071702TKteam",
 	});
-	try {
 		const settings = {
 			method: "POST",
 			headers: {
@@ -15,10 +14,12 @@ export async function createUser(userData) {
 			body: JSON.stringify(userData),
 		};
 		let response = await fetch(`${baseUrl}/wp-json/wp/v2/users`, settings);
-		return response.json();
-	} catch (error) {
-		console.error(error);
-	}
+
+		if (response.status == 201) {
+			return response.json();
+		} else {
+			throw ({message:'The provided email is already registered!'})
+		}
 }
 
 export async function getBearerToken(currentUser) {

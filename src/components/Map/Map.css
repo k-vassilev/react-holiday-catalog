@@ -1,0 +1,13 @@
+.map-of-bulgaria {
+	width: 600px;
+	font-size: 28px;
+	font-family: "DejaVu Sans", sans-serif;
+	font-weight: bold;
+	fill: white;
+}
+.level1 {
+	stroke-width: 1;
+	fill-opacity: 1;
+	fill: #646464;
+}
+.level1 { cursor: pointer; }

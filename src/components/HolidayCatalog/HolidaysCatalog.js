@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as holidayService from "../../services/holidayService";
+import Map from "../Map/Map";
 
 import "./HolidaysCatalog.css";
 import HolidayCard from "./HolidayCard/HolidayCard";
@@ -14,27 +15,24 @@ const HolidaysCatalog = () => {
 		});
 	}, []);
 
-	const [activeFilter, setActiveFilter] = useState('');
-
-	function showAllClasses(e) {
+	function getAllDestinations(e) {
 		e.preventDefault();
 		setHolidays(allDestinations);
 	}
 
-	function getRuse(e) {
+	function getTown(e) {
 		e.preventDefault();
-		const ruse = allDestinations.filter( area => area.acf.destination_area=="Ruse")
-		setHolidays(ruse)
+		console.log(e.target.id);
+		const town = allDestinations.filter(
+			(area) => area.acf.destination_area == `${e.target.id}`
+		);
+		setHolidays(town);
 	}
 
 	return (
 		<>
-		<section>
-			<button onClick={showAllClasses}></button>
-			<button onClick={getRuse}>Ruse</button>
-			<button>Varna</button>
-			<button>Burgas</button>
-		</section>
+			<Map getTown={getTown}/>
+			<button onClick={getAllDestinations}>Reset Filter</button>
 			<section className="container tm-home-section-1" id="more">
 				<div className="section-margin-top">
 					<div className="tm-section-header">
@@ -44,16 +42,14 @@ const HolidaysCatalog = () => {
 					</div>
 					<div className="row">
 						{holidays.length > 0 ? (
-							holidays.map((x) => (
-								<HolidayCard key={x.id} destination={x} />
-							))
+							holidays.map((x) => <HolidayCard key={x.id} destination={x} />)
 						) : (
 							<p>No destinations yet</p>
 						)}
 					</div>
 				</div>
 			</section>
-			</>
+		</>
 	);
 };
 

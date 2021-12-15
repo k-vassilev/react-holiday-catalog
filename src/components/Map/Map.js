@@ -512,7 +512,7 @@ const Map = ({
 						</switch>
 					</g>
 				</svg>
-				</div>
+	</div>
   );
 }
 export default Map;

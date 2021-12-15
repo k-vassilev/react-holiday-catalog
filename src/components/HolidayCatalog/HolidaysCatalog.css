@@ -1,1 +1,51 @@
+.map-row-wrapper {
+	display: flex;
+	padding-top: 20px;
+}
 
+.catalog-wrapper {
+	
+	margin: 0px 20px 0px 20px;
+}
+
+.section-margin-top{
+	margin-top: 0px;
+	padding-top: 50px;
+}
+
+.catalog-h1-title {
+	padding: 25px 0px 30px 0px;
+	text-align: center;
+	font-size: 30px;
+    color: orange;
+    font-weight: bold;
+}
+
+.current-destination {
+	color: black;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.map-text-inner-wrapper {
+	width: 45em;
+	padding-left: 50px;
+}
+
+.filter-reset-btn {
+	padding: 10px 30px 10px 30px;
+    background: #1e2919;
+    color: white;
+    border-radius: 10px;
+	font-size: 24px;
+}
+
+.button-wrapper {
+	display: flex;
+	justify-content: space-around;
+	padding-top: 60px;
+}
+
+.current-destination-wrapper {
+	padding-top: 30px;
+}

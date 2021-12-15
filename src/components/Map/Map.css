@@ -1,5 +1,5 @@
 .map-of-bulgaria {
-	width: 600px;
+	width: 60%;
 	font-size: 28px;
 	font-family: "DejaVu Sans", sans-serif;
 	font-weight: bold;
@@ -19,3 +19,5 @@
 .active {
 	fill: rgb(255, 174, 0);
 }
+
+

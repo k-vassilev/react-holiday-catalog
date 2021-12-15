@@ -15,10 +15,12 @@ export async function createUser(userData) {
 		};
 		let response = await fetch(`${baseUrl}/wp-json/wp/v2/users`, settings);
 
-		if (response.status == 201) {
+		
+		if (response.status === 201) {
 			return response.json();
 		} else {
-			throw ({message:'The provided email is already registered!'})
+			const errorMessage =  {message:'The provided email is already registered!'};
+			throw errorMessage;
 		}
 }
 

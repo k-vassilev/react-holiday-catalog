@@ -1,7 +1,7 @@
 import './Login.css';
 
 import * as authService from "../../services/authService";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { useContext } from "react";
 import AuthContext from '../../contexts/AuthContext';
 

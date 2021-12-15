@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Alert } from 'react-bootstrap';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import './Register.css';
 import * as authService from "../../services/authService";
 

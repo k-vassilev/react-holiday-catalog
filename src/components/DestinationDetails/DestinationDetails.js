@@ -1,6 +1,6 @@
 import {useState, useEffect, useContext} from 'react';
 import { NavLink } from "react-router-dom";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import { confirm } from "react-confirm-box";
 import * as holidayService from "../../services/holidayService";
 import AuthContext from '../../contexts/AuthContext';

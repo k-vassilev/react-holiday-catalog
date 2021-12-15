@@ -24,7 +24,7 @@ const HolidaysCatalog = () => {
 		e.preventDefault();
 		console.log(e.target.id);
 		const town = allDestinations.filter(
-			(area) => area.acf.destination_area == `${e.target.id}`
+			(area) => area.acf.destination_area === `${e.target.id}`
 		);
 		setHolidays(town);
 	}

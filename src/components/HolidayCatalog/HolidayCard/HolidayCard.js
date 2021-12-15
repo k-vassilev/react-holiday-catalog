@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useContext, useState } from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import * as holidayService from "../../../services/holidayService";
 import AuthContext from "../../../contexts/AuthContext";
 

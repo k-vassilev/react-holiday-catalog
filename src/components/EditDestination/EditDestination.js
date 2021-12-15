@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import { isAuth	} from "../../hoc/isAuth";
 import { Alert } from 'react-bootstrap';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import * as holidayService from "../../services/holidayService";
 import AuthContext from "../../contexts/AuthContext";
 

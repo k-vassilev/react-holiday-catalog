@@ -9,5 +9,13 @@
 	stroke-width: 1;
 	fill-opacity: 1;
 	fill: #646464;
+	cursor: pointer;
 }
-.level1 { cursor: pointer; }
+
+.level1:hover {
+	fill: green;
+}
+
+.active {
+	fill: rgb(255, 174, 0);
+}

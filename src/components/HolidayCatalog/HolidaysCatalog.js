@@ -8,6 +8,8 @@ let allDestinations = [];
 
 const HolidaysCatalog = () => {
 	const [holidays, setHolidays] = useState([]);
+	let allAreas = Array.from(document.querySelectorAll(".level1"));
+
 	useEffect(() => {
 		holidayService.getAllDestinations().then((result) => {
 			allDestinations = [...result];
@@ -15,24 +17,39 @@ const HolidaysCatalog = () => {
 		});
 	}, []);
 
-	function getAllDestinations(e) {
+	function clearFilter(e) {
 		e.preventDefault();
+		
+		//clear all except current clicked area
+		allAreas.map((x) => {
+			x.classList.remove("active");
+			return true;
+		})
 		setHolidays(allDestinations);
 	}
 
 	function getTown(e) {
 		e.preventDefault();
-		console.log(e.target.id);
+
 		const town = allDestinations.filter(
 			(area) => area.acf.destination_area === `${e.target.id}`
 		);
 		setHolidays(town);
+
+		let activeArea = document.getElementById(`${e.target.id}`);
+		
+		//clear all except current clicked area
+		allAreas.map((x) => {
+			x.classList.remove("active");
+			return true;
+		})
+		activeArea.classList.add("active");
 	}
 
 	return (
 		<>
 			<Map getTown={getTown}/>
-			<button onClick={getAllDestinations}>Reset Filter</button>
+			<button onClick={clearFilter}>Reset Filter</button>
 			<section className="container tm-home-section-1" id="more">
 				<div className="section-margin-top">
 					<div className="tm-section-header">

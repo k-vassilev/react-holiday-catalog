@@ -54,14 +54,16 @@ const HolidaysCatalog = () => {
 		<section className="catalog-wrapper">
 			<div className="map-row-wrapper">
 				<div className="map-text">
-					<h1 className="catalog-h1-title">Enjoy our community-driven catalog of destinations!</h1>
-					<div className="map-text-inner-wrapper">
-						<h3>You can use the interactive map to find your next travel destination by selecting the desired area.</h3>
-						<div className="current-destination-wrapper">
-							<h3>Currently you are browsing: <span className="current-destination">{ targetedCity ? targetedCity : 'All destinations'}</span></h3>
-						</div>
-						<div className="button-wrapper">
-							<button className="filter-reset-btn" onClick={clearFilter}>Reset Filter</button>
+					<div className="text-border-wrapper">
+						<h1 className="catalog-h1-title">Enjoy our community-driven catalog of destinations!</h1>
+						<div className="map-text-inner-wrapper">
+							<h3>You can use the interactive map to find your next travel destination by selecting the desired area.</h3>
+							<div className="current-destination-wrapper">
+								<h3>Currently browsing: <span className="current-destination">{ targetedCity ? targetedCity : 'All destinations'}</span></h3>
+							</div>
+							<div className="button-wrapper">
+								<button className="filter-reset-btn" onClick={clearFilter}>Reset Filter</button>
+							</div>
 						</div>
 					</div>
 				</div>

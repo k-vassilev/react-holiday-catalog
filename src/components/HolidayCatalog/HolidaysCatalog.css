@@ -27,6 +27,11 @@
 	font-size: 30px;
 }
 
+.text-border-wrapper {
+	border: solid;
+	border-radius: 10px;
+	padding-bottom: 40px;
+}
 .map-text-inner-wrapper {
 	width: 45em;
 	padding-left: 50px;
@@ -48,4 +53,9 @@
 
 .current-destination-wrapper {
 	padding-top: 30px;
+}
+
+.filter-reset-btn:hover {
+	background: #3c763c;
+	text-decoration: underline;
 }

@@ -5,7 +5,7 @@ const Logo = () => {
 		<>
 			<div className="col-lg-6 col-md-4 col-sm-3 tm-site-name-container logo-container">
 				<NavLink to="/" className="tm-site-name">
-					Holiday
+					Home
 				</NavLink>
 			</div>
 		</>

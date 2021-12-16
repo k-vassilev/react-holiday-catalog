@@ -16,7 +16,7 @@ const DestinationDetails = ({
 	let userInfo = useContext(AuthContext).user;
 	let userID;
 
-	if(userToken){
+	if (userToken){
 		userID = userInfo[0].id;
 	}
 
@@ -46,40 +46,44 @@ const DestinationDetails = ({
             });
 		  }
 		  toast.error('You have not deleted the destination!');
-        
     }
 
 	if(destination.acf){
 		return (
-			<section id="game-details">
-				<h1>Destination Details</h1>
-				<div className="info-section">
-					<div className="game-header">
-					<div className="center-cropped" style={{ backgroundImage: `url(${destination.acf.destination_image_url})` }}>
-						</div>
-						<h1>Destination Title</h1>
-						<span className="levels">{destination.acf.destination_likes}</span>
-						<p className="type">{destination.acf.destination_title}</p>
-					</div>
-	
-					<p className="text">
-					{destination.acf.destination_description}
-					</p>
+			<section className="destination-details">
+				<div className="details-wrapper">
+					<h1 className="destination-title-h1">{destination.acf.destination_title} | <span className="area-text">Area: {destination.acf.destination_area}</span></h1>
+					<div className="info-section">
 
-					<h2>Added by: </h2>
-					<DestinationAuthor authorId = {destination.author}/>
-					{
-						destination.author === userID
-							?<div className="buttons">
-								<NavLink to={`/destinations/${destination.id}/edit`} className="button">
-									Edit
-								</NavLink>
-								<form onSubmit={onDelete}>
-                					<button className="button">Delete</button>
-            					</form>
-							</div>
-							: null
-					}
+						<div className="center-cropped details-image" style={{ backgroundImage: `url(${destination.acf.destination_image_url})` }}>
+						</div>
+
+						<div className="description-wrapper">
+							<h2 className="about-the-destination">About:</h2>
+
+							<p className="text">
+							{destination.acf.destination_description}
+							</p>
+
+							
+						</div>
+					</div>
+					<div className="details-controls">
+						<div className="created-by-wrapper">
+							<h2 className="created-by-h2">Created by: </h2>
+							<DestinationAuthor authorId = {destination.author}/>
+						</div>
+						{
+							destination.author === userID
+								?<div className="control-btns">
+									<NavLink to={`/destinations/${destination.id}/edit`}>
+										<button className="edit-btn">Edit</button>
+									</NavLink>
+									<button onclick={onDelete} className="delete-btn">Delete</button>
+								</div>
+								: null
+						}
+					</div>
 				</div>
 			</section>
 		)

@@ -1,0 +1,76 @@
+.destination-details {
+	display: flex;
+	justify-content: center;
+}
+
+.details-wrapper {
+	margin: 25px 0px 25px 0px;
+	border: solid;
+	border-radius: 10px;
+	height: 75vh;
+}
+
+.info-section {
+	display: flex;
+	width: 800px;
+	height: 58vh;
+	flex-direction: column;
+}
+
+.destination-title-h1 {
+	margin: 10px 25px 10px 25px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid;
+}
+
+.details-image {
+	margin-left: 25px;
+	margin-right: 25px;
+}
+
+.area-text {
+	font-size: 24px;
+}
+
+.about-the-destination {
+	margin: 0px;
+	padding: 0px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.details-controls {
+	border-top: 1px solid;
+	margin: 0px 25px 0px 25px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.created-by-h2 {
+	margin: 0px;
+	padding-top: 10px;
+	font-size: 20px;
+}
+
+.created-by-wrapper {
+	display: flex;
+}
+
+.edit-btn, .delete-btn {
+	margin-top: 3px;
+	padding: 5px 15px 5px 15px;
+    background: #1e2919;
+    color: white;
+    border-radius: 10px;
+	font-size: 18px;
+}
+
+.delete-btn {
+	margin-left: 10px;
+	padding-bottom: 4px;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+	background: #3c763c;
+	text-decoration: underline;
+}

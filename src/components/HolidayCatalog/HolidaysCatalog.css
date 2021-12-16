@@ -59,3 +59,14 @@
 	background: #3c763c;
 	text-decoration: underline;
 }
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.description-wrapper {
+	margin: 25px;
+    text-align: justify;
+}

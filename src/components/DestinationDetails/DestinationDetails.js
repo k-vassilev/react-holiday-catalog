@@ -44,8 +44,9 @@ const DestinationDetails = ({
                 	return;
 				}, 1500);
             });
+		  } else {
+			  toast.error('You have not deleted the destination!');
 		  }
-		  toast.error('You have not deleted the destination!');
     }
 
 	if(destination.acf){

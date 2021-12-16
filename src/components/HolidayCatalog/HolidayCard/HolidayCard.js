@@ -65,6 +65,7 @@ const HolidayCard = (props) => {
 				<h3 className="holiday-card-name-h3">{props.destination.acf.destination_title}</h3>
 				<div className="tm-home-box-2-container">
 					<NavLink to="#" onClick={likeHandler} className="tm-home-box-2-link">
+						<span className="like-btn">LIKE</span>
 						<i className="fa fa-heart tm-home-box-2-icon border-right">
 							{ likesCount ? ` ${likesCount}` : null }
 						</i>

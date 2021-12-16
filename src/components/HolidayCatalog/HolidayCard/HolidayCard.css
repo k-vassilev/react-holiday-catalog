@@ -5,7 +5,7 @@
 }
 
 .view-details-btn {
-	margin: 10px 0px 0px 35px;
+	margin: 10px 0px 0px 20px;
 	padding: 5px 10px 5px 10px;
     background: #1e2919;
     color: white;
@@ -20,4 +20,11 @@
 
 .holiday-card-name-h3 {
 	text-align: center;
+}
+
+.like-btn {
+	margin-left: 10px;
+}
+.fa {
+	padding-left: 0px;
 }

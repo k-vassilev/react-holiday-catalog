@@ -21,7 +21,8 @@ const Navigation = () => {
 		
 	}, [contextValue.user]);
 
-	const logout = () => {
+	const logout = (e) => {
+		e.preventDefault();
 		localStorage.clear();
 		contextValue.authUser({});
 		setIsLogged(false);
@@ -42,7 +43,7 @@ const Navigation = () => {
 						<NavLink to="/destinations-by-me">Added by me</NavLink>
 					</li>
 					<li>
-						<NavLink to="/" onClick={logout}>Logout</NavLink>
+						<NavLink to="/logout" exact={true} onClick={logout}>Logout</NavLink>
 					</li>
 				</ul>
 			</nav>

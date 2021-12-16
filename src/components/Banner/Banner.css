@@ -1,0 +1,27 @@
+.banner-title-wrapper {
+	margin-top: -320px;
+	margin-left: 40%;
+}
+
+.tm-banner-title {
+	font-size: 38px;
+	color: red;
+}
+
+.banner-btn-wrapper {
+	position: relative;
+	left: 650px;
+}
+
+.banner-btn {
+	padding: 5px 15px 5px 15px;
+    background: #1e2919;
+    color: white;
+    border-radius: 10px;
+	font-size: 18px;
+}
+
+.banner-btn:hover {
+	background: #3c763c;
+	text-decoration: underline;
+}

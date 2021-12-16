@@ -4,3 +4,17 @@
 .col-lg-4.col-md-6.col-sm-6{
 	margin: auto;
 }
+
+.recently-featured-destinations-wrappers {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.home-destinations-title {
+	margin: 50px 100px;
+}
+
+.users-wrapper {
+	margin-top: 75px;
+}
+

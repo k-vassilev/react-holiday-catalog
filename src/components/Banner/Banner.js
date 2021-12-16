@@ -6,15 +6,18 @@ const Banner = () => {
 		<>
 			<section className="tm-banner">
 				<div className="tm-banner-inner">
-					<h1 className="tm-banner-title">
-						Welcome to <span className="tm-yellow-text">Holiday`s</span> catalog
-					</h1>
-					<p className="tm-banner-subtitle">Find Your Next Holiday Destination</p>
-					<NavLink to="/destinations" className="tm-banner-link">
-						Browse all destinations
-					</NavLink>
+					<div className="banner-title-wrapper">
+						<h1 className="tm-banner-title">
+							Welcome to Bulgaria top destinations
+						</h1>
+					</div>
+					<div className="banner-btn-wrapper">
+						<NavLink to="/destinations">
+							<button className="banner-btn">Start browsing</button>
+						</NavLink>
+					</div>
 				</div>
-				<img src="/images/banner-2.jpg" alt="banner" height="641vh" />
+				<img src="/images/bulgaria-header.jpg" alt="banner" width="100%" />
 			</section>
 		</>
 	);

@@ -16,6 +16,7 @@ const EditDestination = ({
 	const [destination, setDestination] = useState({});
 	const [destinationNameError, setDestinationNameError] = useState({name: false});
 	const [imageUrlUserNameError, setImageUrlUserNameError] = useState({name: false});
+	const [destinationDescriptionError, setDestinationDescriptionError] = useState({name: false});
 
 	const destinationNameHandler = (e) => {
         let destinationName = e.target.value;
@@ -39,6 +40,15 @@ const EditDestination = ({
 		}
     };
 
+	const destinationDescriptionHandler = (e) => {
+		let validDescription = String(e.target.value);
+		if (validDescription.length > 1000) {
+			setDestinationDescriptionError(state => ({...state, name: `You are ${validDescription.length - 1000} characters above the 1000 character limit.`}))
+		} else {
+			setDestinationDescriptionError(state => ({...state, name: false}))
+		}
+	}
+
 	useEffect(() => {
 		const getOneHoliday = async() => {
 			let result = await holidayService.getOne(match.params.destinationId);
@@ -53,7 +63,7 @@ const EditDestination = ({
         const destinationId = match.params.destinationId;
 
 		const formData = new FormData(e.target);
-		const {title, description, imgUrl} = Object.fromEntries(formData)
+		const {title, description, imgUrl, area} = Object.fromEntries(formData)
 
 		const updatedDestination = {
 			title: e.target.title.value,
@@ -62,6 +72,7 @@ const EditDestination = ({
 				'destination_title': title,
 				'destination_description': description,
 				'destination_image_url': imgUrl,
+				'destination_area': area,
 		  	},
 		  };
 
@@ -92,18 +103,55 @@ const EditDestination = ({
 							</span>
 							<Alert variant="danger" show={destinationNameError.name}>{destinationNameError.name}</Alert>
 						</div>
-						<p className="field">
+						<div className="field">
 							<label htmlFor="description">Description</label>
-							<span className="input">
-							<textarea type="text" name="description" defaultValue={destination.acf.destination_description}></textarea>
+							<span className="input" style={{borderColor: destinationDescriptionError.name ? 'red' : 'inherit'}}>
+							<textarea type="text" name="description" rows="4" defaultValue={destination.acf.destination_description} onBlur={destinationDescriptionHandler}></textarea>
 							</span>
-						</p>
+							<Alert variant="danger" show={destinationDescriptionError.name}>{destinationDescriptionError.name}</Alert>
+						</div>
 						<div className="field">
 							<label htmlFor="imgUrl">Image</label>
 							<span className="input" style={{borderColor: imageUrlUserNameError.name ? 'red' : 'inherit'}}>
 								<input type="text" name="imgUrl" id="imgUrl" defaultValue={destination.acf.destination_image_url} onBlur={imageUrlChangeHandler} required/>
 							</span>
 							<Alert variant="danger" show={imageUrlUserNameError.name}>{imageUrlUserNameError.name}</Alert>
+						</div>
+						<div className="field">
+							<label htmlFor="area">Area</label>
+							<span className="input" style={{borderColor: imageUrlUserNameError.name ? 'red' : 'inherit'}}>
+							<select id="area" name="area" defaultValue={destination.acf.destination_area}>
+								<option value="" disabled selected hidden>Select area</option>
+                                <option value="Blagoevgrad">Blagoevgrad</option>
+                                <option value="Burgas">Burgas</option>
+                                <option value="Varna">Varna</option>
+                                <option value="Veliko Tarnovo">Veliko Tarnovo</option>
+                                <option value="Vidin">Vidin</option>
+								<option value="Vratsa">Vratsa</option>
+								<option value="Gabrovo">Gabrovo</option>
+								<option value="Dobrich">Dobrich</option>
+								<option value="Kardzhali">Kardzhali</option>
+								<option value="Kystendil">Kystendil</option>
+								<option value="Lovech">Lovech</option>
+								<option value="Montana">Montana</option>
+								<option value="Pazardzhik">Pazardzhik</option>
+								<option value="Pernik">Pernik</option>
+								<option value="Pleven">Pleven</option>
+								<option value="Plovdiv">Plovdiv</option>
+								<option value="Razgrad">Razgrad</option>
+								<option value="Ruse">Ruse</option>
+								<option value="Silistra">Silistra</option>
+								<option value="Sliven">Sliven</option>
+								<option value="Smolyan">Smolyan</option>
+								<option value="Sofia City">Sofia City</option>
+								<option value="Sofia Province">Sofia Province</option>
+								<option value="Stara Zagora">Stara Zagora</option>
+								<option value="Targovishte">Targovishte</option>
+								<option value="Haskovo">Haskovo</option>
+								<option value="Shumen">Shumen</option>
+								<option value="Yambol">Yambol</option>
+                            </select>
+							</span>
 						</div>
 						<input className="button submit" type="submit" value="Save"/>
 					</fieldset>

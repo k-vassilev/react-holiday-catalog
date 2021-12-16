@@ -11,7 +11,6 @@ import Register from "./components/Register/Register";
 import DestinationDetails from "./components/DestinationDetails/DestinationDetails";
 import EditDestination from "./components/EditDestination/EditDestination";
 import DestinationsByMe from "./components/DestinationsByMe/DestinationsByMe";
-import Profile from "./components/Profile/Profile";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
@@ -35,7 +34,6 @@ function App() {
 					<Route path="/destinations/:destinationId/edit" component={EditDestination} />
 					<Route path="/destinations/:destinationId" component={DestinationDetails} />
 					<Route path="/destinations-by-me" component={DestinationsByMe} />
-					<Route path="/profile" component={Profile} />
 				</Switch>
 			<Footer/>
 		</AuthContext.Provider>

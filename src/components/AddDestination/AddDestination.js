@@ -12,6 +12,7 @@ const AddDestination = ({
 	const userToken = useContext(AuthContext).user.token;
 	const [destinationNameError, setDestinationNameError] = useState({name: false});
 	const [imageUrlUserNameError, setImageUrlUserNameError] = useState({name: false});
+	const [destinationDescriptionError, setDestinationDescriptionError] = useState({name: false});
 
 	const destinationNameHandler = (e) => {
         let destinationName = e.target.value;
@@ -34,6 +35,15 @@ const AddDestination = ({
 			setImageUrlUserNameError(state => ({...state, name: false}))
 		}
     };
+
+	const destinationDescriptionHandler = (e) => {
+		let validDescription = String(e.target.value);
+		if (validDescription.length > 1000) {
+			setDestinationDescriptionError(state => ({...state, name: `You are ${validDescription.length - 1000} characters above the 1000 character limit.`}))
+		} else {
+			setDestinationDescriptionError(state => ({...state, name: false}))
+		}
+	}
 
 	const onAddDestinationSubmitHandler = (e) => {
         e.preventDefault();
@@ -77,12 +87,13 @@ const AddDestination = ({
                         </span>
 						<Alert variant="danger" show={destinationNameError.name}>{destinationNameError.name}</Alert>
                     </div>
-                    <p className="field">
+                    <span className="field">
                         <label htmlFor="description">Destination Description</label>
-                        <span className="input">
-                            <textarea name="description" id="description" placeholder="Description"></textarea>
+                        <span className="input" style={{borderColor: destinationDescriptionError.name ? 'red' : 'inherit'}}>
+                            <textarea name="description" id="description" rows="4" placeholder="Description" onBlur={destinationDescriptionHandler}></textarea>
                         </span>
-                    </p>
+						<Alert variant="danger" show={destinationDescriptionError.name}>{destinationDescriptionError.name}</Alert>
+                    </span>
                     <div className="field">
                         <label htmlFor="imgUrl">Destination Image URL</label>
                         <span className="input" style={{borderColor: imageUrlUserNameError.name ? 'red' : 'inherit'}}>

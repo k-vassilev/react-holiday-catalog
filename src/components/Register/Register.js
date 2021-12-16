@@ -111,12 +111,6 @@ const Register = ({
                             <input type="text" name="userImg" id="userImg" placeholder="Image Url"/>
                         </span>
                     </span>
-					<p className="field">
-                        <label htmlFor="userDescription">Introuduce yourself</label>
-                        <span className="input">
-                            <textarea rows="5" name="userDescription" id="userDescription" placeholder="About yourself"/>
-                        </span>
-                    </p>
                     <span className="field">
                         <label htmlFor="password">Password</label>
                         <span className="input" style={{borderColor: passwordError.name ? 'red' : 'inherit'}}>

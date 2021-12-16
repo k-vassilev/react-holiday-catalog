@@ -1,5 +1,6 @@
 .create {
 	display: flex;
+	margin-bottom: 40px;
 }
 #create-form {
 	margin: auto;

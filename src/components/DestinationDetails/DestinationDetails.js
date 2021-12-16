@@ -79,7 +79,7 @@ const DestinationDetails = ({
 									<NavLink to={`/destinations/${destination.id}/edit`}>
 										<button className="edit-btn">Edit</button>
 									</NavLink>
-									<button onclick={onDelete} className="delete-btn">Delete</button>
+									<button onClick={onDelete} className="delete-btn">Delete</button>
 								</div>
 								: null
 						}

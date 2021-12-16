@@ -3,8 +3,15 @@
 }
 #register-form {
 	margin: auto;
-	margin-bottom: 204px;
+	margin-bottom: 97px;
+	width: 400px;
 }
+
+#email, #password, #username, #userImg, #repass {
+	width: 350px;
+	margin-bottom: 10px;
+}
+
 #register-form {
 	border: 5px solid black;
 	margin-top: 50px;
@@ -22,17 +29,16 @@ label > span {
 	left: 0;
 }
 .button {
-    display: inline-block;
-    padding: 0.6rem 1rem;
-    border-radius: 0.4rem;
-    text-decoration: none;
-    font-weight: bold;
-    background: black;
-    color: rgb(255, 255, 255);
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-align: center;
+    margin-top: 3px;
+	padding: 5px 15px 5px 15px;
+    background: #1e2919;
+    color: white;
+    border-radius: 10px;
+	font-size: 18px;
+}
+.button:hover {
+	background: #3c763c;
+	text-decoration: underline;
 }
 .fade {
 	opacity: 80;

@@ -28,7 +28,7 @@ const DestinationsByMe = () => {
 							{ownDestinations.length > 0 
 								? ( ownDestinations.map((x) => (
 									<HolidayCard key={x.id} destination={x} /> ))) 
-								: ( <p>No destinations yet</p>)}
+								: ( <h2 className="no-destinations">You haven`t created any destinations yet.</h2>)}
 					</div>
 			</section>
 	);

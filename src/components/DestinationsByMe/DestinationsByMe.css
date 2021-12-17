@@ -7,5 +7,10 @@
   }
 
 .added-by-me-section {
-	margin: 25px 25px 135px 25px;
+	margin: 25px 25px 175px 25px;
+	height: 54.2vh;
+}
+
+.no-destinations {
+	margin-top: 27vh;
 }

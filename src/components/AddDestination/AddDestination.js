@@ -10,16 +10,16 @@ const AddDestination = ({
 	history,
 }) => {
 	const userToken = useContext(AuthContext).user.token;
-	const [destinationNameError, setDestinationNameError] = useState({name: false});
-	const [imageUrlUserNameError, setImageUrlUserNameError] = useState({name: false});
-	const [destinationDescriptionError, setDestinationDescriptionError] = useState({name: false});
+	const [destinationNameError, setDestinationNameError] = useState({name: ""});
+	const [imageUrlUserNameError, setImageUrlUserNameError] = useState({name: ""});
+	const [destinationDescriptionError, setDestinationDescriptionError] = useState({name: ""});
 
 	const destinationNameHandler = (e) => {
         let destinationName = e.target.value;
         if (destinationName.length < 4) {
             setDestinationNameError(state => ({...state, name: 'Destination`s name should be at least 4 characters!'}))
         } else {
-            setDestinationNameError(state => ({...state, name: false}))
+            setDestinationNameError(state => ({...state, name: ""}))
         }
     };
 
@@ -32,7 +32,7 @@ const AddDestination = ({
 		if (! validImageUrl) {
 			setImageUrlUserNameError(state => ({...state, name: 'Please provide a valid image URL!'}))
 		} else {
-			setImageUrlUserNameError(state => ({...state, name: false}))
+			setImageUrlUserNameError(state => ({...state, name: ""}))
 		}
     };
 
@@ -41,7 +41,7 @@ const AddDestination = ({
 		if (validDescription.length > 1000) {
 			setDestinationDescriptionError(state => ({...state, name: `You are ${validDescription.length - 1000} characters above the 1000 character limit.`}))
 		} else {
-			setDestinationDescriptionError(state => ({...state, name: false}))
+			setDestinationDescriptionError(state => ({...state, name: ""}))
 		}
 	}
 
@@ -62,7 +62,7 @@ const AddDestination = ({
 		  	}
 		};
 
-		if (!destinationNameError.name && !imageUrlUserNameError.name){
+		if (!destinationNameError.name && !imageUrlUserNameError.name && !destinationDescriptionError.name){
 			holidayService.createDestination(destination, userToken)
 			.then(() => {
 				toast.success('Destination successfully added!');
@@ -71,7 +71,7 @@ const AddDestination = ({
 				}, 1500);
 			});
 		} else {
-			toast.error('Fix the below errors and try to add the destination again!');
+			toast.error('Fix the errors and try to add the destination again!');
 		}
     };
 
@@ -105,7 +105,6 @@ const AddDestination = ({
                         <label htmlFor="area">Area</label>
                         <span className="input">
                             <select id="area" name="area">
-								<option value="" disabled selected hidden>Select area</option>
                                 <option value="Blagoevgrad">Blagoevgrad</option>
                                 <option value="Burgas">Burgas</option>
                                 <option value="Varna">Varna</option>

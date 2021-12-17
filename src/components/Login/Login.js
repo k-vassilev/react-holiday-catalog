@@ -43,13 +43,13 @@ const Login = ({
                     <p className="field">
                         <label htmlFor="email">Email</label>
                         <span className="input">
-                            <input type="text" name="email" id="email" placeholder="Email"/>
+                            <input type="text" name="email" id="email" placeholder="Email" autoComplete="on"/>
                         </span>
                     </p>
                     <p className="field">
                         <label htmlFor="password">Password</label>
                         <span className="input">
-                            <input type="password" name="password" id="password" placeholder="Password"/>
+                            <input type="password" name="password" id="password" placeholder="Password" autoComplete="on"/>
                         </span>
                     </p>
                     <input className="button submit" type="submit" value="Login"/>

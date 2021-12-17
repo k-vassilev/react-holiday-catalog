@@ -12,6 +12,7 @@ import HolidayCard from "../../components/HolidayCatalog/HolidayCard/HolidayCard
 const DestinationsByMe = () => {
 	const contextValue = useContext(AuthContext);
 	const authorId = contextValue.user[0].id;
+	const userName = contextValue.user[0].name;
 
 	const [ownDestinations, setOwnDestinations] = useState([]);
 
@@ -23,7 +24,7 @@ const DestinationsByMe = () => {
 
 	return (
 			<section className="added-by-me-section">
-				<h2>Created by me:</h2>
+				<h2>Created by {userName}:</h2>
 					<div className="row">
 							{ownDestinations.length > 0 
 								? ( ownDestinations.map((x) => (

@@ -14,3 +14,7 @@
 .no-destinations {
 	margin-top: 27vh;
 }
+
+.row::before, .row::after {
+	display: none;
+}

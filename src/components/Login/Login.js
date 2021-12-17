@@ -41,7 +41,7 @@ const Login = ({
                 <fieldset>
                     <legend>Login Form</legend>
                     <p className="field">
-                        <label htmlFor="email">Email</label>
+                        <label htmlFor="email">Username or Email</label>
                         <span className="input">
                             <input type="text" name="email" id="email" placeholder="Email" autoComplete="on"/>
                         </span>

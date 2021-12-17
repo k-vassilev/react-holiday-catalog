@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+<div id="top"></div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<a href="https://www.linkedin.com/in/kristian-vassilev-86076227/">![linkedin-shield]</a>
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/k-vassilev/react-holiday-catalog">
+    <img src="public/favicon.ico" alt="Logo" width="80" height="80">
+  </a>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3 align="center">Bulgaria tourism destinations catalog</h3>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  <p align="center">
+    The app is a place, where its community members can add and vote on holiday destinations across Bulgaria.
+	Users can browse all destinations without registration by utilizing the interactive map and view details when on a destination card.
+	The app supports user registration, upon which more options are provided to the user - namely - to add even more destinations, edit and delete them as well as to list all of the user added content.
+    <br />
+    <a href="https://react-holiday-catalog.web.app/">View live</a>
+  </p>
+</div>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+<!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+	 <li>
+      <a href="#architecture">Architecture</a>
+      <ul>
+        <li><a href="#public">Public</a></li>
+        <li><a href="#private">Private</a></li>
+      </ul>
+    </li>
+  </ol>
+</details>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<br />
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project is created by using the React framework and a headless WordPress REST API for the back-end.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React.js](https://reactjs.org/)
+* [Headless WordPress](https://wordpress.org/)
+* [react-bootstrap](https://react-bootstrap.github.io/)
+* [react-confirm-box](https://www.npmjs.com/package/react-confirm-box)
+* [react-hot-toast](https://react-hot-toast.com/)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- GETTING STARTED -->
+## Getting Started
 
-### Code Splitting
+To get a local copy up and running follow these simple example steps.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Prerequisites
 
-### Analyzing the Bundle Size
+To clone the repo, open your favourite code editor in the folder where you wish to clone the repo.
+Open new terminal and type:
+* using ssh
+  ```
+  git clone git@github.com:k-vassilev/react-holiday-catalog.git
+  ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Installation
 
-### Making a Progressive Web App
+1. Open new terminal and type in:
+   ```sh
+   npm install
+   ```
+2. To run the app type:
+   ```sh
+   npm start
+   ```
+3. If everything went smoothly, the app should open on http://localhost:3000/
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. You can check the live version of the app on: https://react-holiday-catalog.web.app/
 
-### Advanced Configuration
+<p align="right">(<a href="#top">back to top</a>)</p>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<!-- USAGE EXAMPLES -->
+## Architecture
 
-### `npm run build` fails to minify
+The app is split in public and private parts:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Public
+
+The public part of the app gives access to the home page, the catalog page, a login pageas well as the ability to register as a new user.
+
+* The home page consists of a header banner, a section with the four most recently added destinations and a section of all registered users.
+* The catalog page consists of an interactive map, which filters all the destinations by the selected area. There is a button to reset the filter and show a list of 100 destinations.
+* All destination cards show an image and likes counter. When the view details button on a destination is clicked it leads the user to additional information about the chosen destination as well as who is it`s creator.
+* Every visitor can register to unlock some addition options or login if he already has a registration.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Private
+
+The private part gives its registered users some more functionalities like:
+
+* Being able to vote on destination via the like button. However they can only like each destination once.
+* They can add new destinations
+* They can edit and delete the destinations that they have created.
+* They can check all destinations which they are owners of.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555

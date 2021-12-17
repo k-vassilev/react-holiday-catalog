@@ -5,7 +5,7 @@ export const getOne = (id) =>
 
 export const getAllDestinations = () => {
 	return fetch(
-		`${baseUrl}/destinations`)
+		`${baseUrl}/destinations?per_page=100`)
 		.then(res => res.json());
 }
 

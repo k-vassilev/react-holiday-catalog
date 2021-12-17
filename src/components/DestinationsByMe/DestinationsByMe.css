@@ -8,7 +8,7 @@
 
 .added-by-me-section {
 	margin: 25px 25px 175px 25px;
-	height: 54.2vh;
+	min-height: 54.2vh;
 }
 
 .no-destinations {
